@@ -19,7 +19,7 @@ Este proyecto implementa los pilares de la Programación Orientada a Objetos (PO
 ## 🛠️ Estructura del Sistema
 
 ### 📂 Paquete: `com.valorant.agentes`
-* **Agente (Padre):** Atributos base como vida, país y estado.
+* **valorantAgentes.Agente (Padre):** Atributos base como vida, país y estado.
 * **Duelista / Centinela:** Clases hijas que implementan el sistema de 4 habilidades (C, Q, E, X).
 * **Habilidad:** Clase auxiliar que define costes, tipos de efecto y nombres.
 * **EquipoAgentes:** Gestor de listas y mapas para el control de la plantilla de personajes.
