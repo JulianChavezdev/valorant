@@ -1,73 +1,61 @@
-# 🎮 Valorant Core Engine | Simulation Backend
+# 🎮 VALORANT Manager System - Java OOP Project
 
-![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
-![Status](https://img.shields.io/badge/Versión-1.0_Estable-green?style=for-the-badge)
-![UD3](https://img.shields.io/badge/Evaluación-UD3_Estructuras_Control-blue?style=for-the-badge)
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Complete-brightgreen?style=for-the-badge)
 
-eEste proyecto es un simulador táctico de backend basado en el universo de **Valorant**. La aplicación gestiona de forma integral la lógica de combate, la jerarquía de personajes y el cálculo de daño balístico dinámico, cumpliendo estrictamente con los requisitos de programación orientada a objetos y gestión de colecciones.
+A comprehensive technical management system based on the **VALORANT** universe. This project was developed as an integral application for Object-Oriented Programming (OOP), managing agents, unique ability kits, an advanced arsenal with hit-zone damage stats, and a functional store.
 
----
+## 🚀 Project Overview
 
-## 🏗️ Arquitectura del Sistema
+This system implements the core pillars of OOP and advanced control structures:
 
-El proyecto está organizado en dos paquetes estratégicos para garantizar el desacoplamiento:
-
-### 1. `com.valorant.core` (Entidades de Juego)
-Contiene la definición de los objetos del dominio. Se utiliza **Herencia** para especializar comportamientos.
-
-* **Jerarquía de Agentes:**
-    * `Agente` (Padre): Base con lógica de comparación `equals/hashCode`.
-    * `Duelista`, `Centinela`, `Controlador` (Hijas): Implementan atributos únicos como multiplicadores de velocidad o gestión de trampas.
-* **Jerarquía de Armas:**
-    * `Arma` (Padre): Atributos de capacidad y daño base.
-    * `Fusil`, `Francotirador`, `Subfusil` (Hijas): Implementan el **Damage Falloff** (caída de daño por distancia) y modos de disparo específicos.
-
-### 2. `com.valorant.engine` (Lógica y Gestión)
-Donde reside la inteligencia del simulador y el manejo de datos complejos.
-
-* **`Arsenal`:** Sistema CRUD gestionado por un `HashMap<String, Arma>`.
-* **`Squad`:** Control de escuadrones mediante `ArrayList<Agente>` y logs de historial.
-* **`CombateLog`:** Motor de cálculo de impactos con lógica de `HashMap<Agente, Integer>`.
-* **`Partida`:** Orquestador principal que utiliza `HashSet<String>` para el control de jugadores vivos en tiempo real.
+- **Multi-layer Architecture:** Organized into specific packages (`agentes` and `arsenal`).
+- **Inheritance Hierarchy:** Base classes for Agents and Weapons with specialized subclasses.
+- **Data Management:** Extensive use of `ArrayList` for inventories and `HashMap` for high-performance key-value lookups.
+- **Business Logic:** Stat validation, hit-zone damage calculation, and economic management.
 
 ---
 
-## 🛠️ Especificaciones Técnicas (UD3)
+## 🛠️ System Structure
 
-Para garantizar la máxima nota, el proyecto implementa las siguientes estructuras de control y datos:
+### 📂 Package: `com.valorant.agentes`
+* **Agente (Parent):** Base attributes such as health, country of origin, and status.
+* **Duelista / Centinela (Children):** Specialized classes implementing the 4-ability system (C, Q, E, X).
+* **Habilidad (Auxiliary):** Defines ability costs, effect types, and charges.
+* **EquipoAgentes (Manager):** Handles lists and maps to control the active roster of characters.
 
-### 📊 Gestión de Colecciones
-| Estructura | Implementación | Propósito |
-| :--- | :--- | :--- |
-| **HashMap** | `catalogoArmas` | Acceso $O(1)$ a las armas por nombre. |
-| **HashMap** | `danoRecibido` | Registro acumulativo de daño por Agente. |
-| **HashSet** | `jugadoresVivos` | Gestión eficiente de estados de eliminación. |
-| **ArrayList** | `miembros`, `historial` | Gestión secuencial de equipo y eventos. |
-
-### ⚙️ Lógica de Control
-* **Cálculo Dinámico:** El daño se procesa mediante condicionales anidados en `CombateLog`.
-  $$D_{final} = (D_{base} \cdot M_{distancia}) \cdot M_{zona}$$
-* **Bucle de Simulación:** Un ciclo `while` en `Partida` controla el flujo de las 13 rondas reglamentarias.
-* **Filtrado Eficiente:** Uso de bucles `for-each` para búsqueda de armas por umbral de daño y aplicación de daño global por explosión.
+### 📂 Package: `com.valorant.arsenal`
+* **Arma (Parent):** Defines pricing, categories, and firing rates.
+* **Rifle / Francotirador (Children):** Specialized classes featuring localized damage stats (Head, Body, Legs).
+* **Skin (Auxiliary):** Manages cosmetic items and collections.
+* **Tienda (Manager):** Logic for inventory management, active discounts, and weapon queries.
 
 ---
 
-## 📋 Requisitos de Implementación
+## 📋 Technical Requirements Met
 
-Cada clase en este proyecto incluye de forma obligatoria:
-1.  **Atributos:** Mínimo 4 atributos por clase (incluyendo Tipos Primitivos, String y Enums).
-2.  **Encapsulamiento:** Getters, Setters y Constructores (Vacío y Completo).
-3.  **Métodos Object:** Sobrescritura de `toString`, `equals` y `hashCode`.
-4.  **Enums:** Uso de enumerados para `TipoAgente` y `ZonaCuerpo`.
+| Requirement | Implementation |
+| :--- | :--- |
+| **Classes** | 10 distinct classes with full/empty constructors, getters, setters, and custom `toString`. |
+| **Inheritance** | 2 Parent classes and 4 specialized child classes. |
+| **Collections** | 4 `ArrayList` and 2 `HashMap` structures with CRUD methods (Add, Search, Delete). |
+| **Data Types** | Robust use of `String`, `int`, `double`, `boolean`, and custom `Enums`. |
+| **Logic** | Implementation of `for/while` loops, `if/else` conditionals, and `switch` statements. |
+| **Data Integrity** | Overridden `equals` and `hashCode` in all entities for correct collection behavior. |
+
+---
+
+## 💻 Execution Example (Main)
+
+The `Main` class initializes a full environment including:
+1.  **Agents:** Instantiating Duelists (e.g., Jett) and Sentinels (e.g., Sage) with their full ability kits.
+2.  **Arsenal:** Configuration of iconic weapons (Vandal, Operator) with specific damage-per-hitbox values.
+3.  **Operations:** Recruiting agents into a team and managing store inventory via Map logic.
 
 ---
 
-## 🚀 Ejecución
+## ⚙️ Installation & Usage
 
-La clase `Main` (en la raíz) instancia el ecosistema completo, simulando:
-1.  La creación de un **Arsenal** completo.
-2.  La formación de un **Squad** (con validación de composición táctica).
-3.  Una secuencia de combate con registro de logs y resumen final de bajas.
-
----
-> **Nota Académica:** Este proyecto ha sido diseñado para demostrar habilidades avanzadas en el manejo de herencia, polimorfismo y estructuras de datos dinámicas en Java.
+1. Clone the repository:
+   ```bash
+   git clone [https://github.com/your-username/valorant-java-project.git](https://github.com/your-username/valorant-java-project.git)
