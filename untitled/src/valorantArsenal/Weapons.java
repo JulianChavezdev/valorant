@@ -2,21 +2,21 @@ package valorantArsenal;
 
 import java.util.Objects;
 
-public class Arma {
+public class Weapons {
     private String name;
     private double price;
     private boolean itsAutomatic;
-    protected enum Category {PISTOLA, SUBFUSIL, FUSIL, ESCOPETA, FRANCOTIRADOR, AMETRALLADORA}
+    protected enum Category {PISTOLA, FRANCOTIRADOR, FUSIL}
     private Category category;
 
-    public Arma(String name, double price, boolean itsAutomatic, Category category) {
+    public Weapons(String name, double price, boolean itsAutomatic, Category category) {
         this.name = name;
         this.price = price;
         this.itsAutomatic = itsAutomatic;
         this.category = category;
     }
 
-    public Arma() {
+    public Weapons() {
     }
 
     public String getName() {
@@ -54,7 +54,7 @@ public class Arma {
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        Arma arma = (Arma) o;
+        Weapons arma = (Weapons) o;
         return Double.compare(price, arma.price) == 0 && itsAutomatic == arma.itsAutomatic && Objects.equals(name, arma.name) && category == arma.category;
     }
 
