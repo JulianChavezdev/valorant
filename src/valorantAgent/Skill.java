@@ -5,7 +5,7 @@ import java.util.Objects;
 public class Skill extends Agent{
     private String name;
     private int price;
-    private boolean ulti;
+    private boolean itsulti;
     private enum Efect{DAÑO,CURACION,CEGUERA};
     private Efect efect;
 
@@ -13,14 +13,14 @@ public class Skill extends Agent{
         super(name, country, baseLife, itslive);
         this.name = name1;
         this.price = price;
-        this.ulti = ulti;
+        this.itsulti = ulti;
         this.efect = efect;
     }
 
     public Skill(String name, int price, boolean ulti, Efect efect) {
         this.name = name;
         this.price = price;
-        this.ulti = ulti;
+        this.itsulti = ulti;
         this.efect = efect;
     }
 
@@ -29,12 +29,12 @@ public class Skill extends Agent{
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         Skill skill = (Skill) o;
-        return price == skill.price && ulti == skill.ulti && Objects.equals(name, skill.name) && efect == skill.efect;
+        return price == skill.price && itsulti == skill.itsulti && Objects.equals(name, skill.name) && efect == skill.efect;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), name, price, ulti, efect);
+        return Objects.hash(super.hashCode(), name, price, itsulti, efect);
     }
 
     @Override
@@ -42,7 +42,7 @@ public class Skill extends Agent{
         return "Skill{" +
                 "name='" + name + '\'' +
                 ", price=" + price +
-                ", ulti=" + ulti +
+                ", ulti=" + itsulti +
                 ", efect=" + efect +
                 '}';
     }
