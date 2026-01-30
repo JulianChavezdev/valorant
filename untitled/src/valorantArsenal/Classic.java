@@ -2,21 +2,21 @@ package valorantArsenal;
 
 import java.util.Objects;
 
-public class Pistol extends Weapons {
+public class Classic extends Weapons {
     private int headDamage;
     private int bodyDamage;
     private int legsDamage;
-    private boolean itsSilenced;
+    private boolean rightclic;
 
-    public Pistol(String name, int chargedsize, double price, boolean itsAutomatic, Category category, int headDamage, int bodyDamage, int legsDamage, boolean itsSilenced) {
+    public Classic(String name, int chargedsize, double price, boolean itsAutomatic, Category category, int headDamage, int bodyDamage, int legsDamage, boolean rightclic) {
         super(name, chargedsize, price, itsAutomatic, category);
         this.headDamage = headDamage;
         this.bodyDamage = bodyDamage;
         this.legsDamage = legsDamage;
-        this.itsSilenced = itsSilenced;
+        this.rightclic = rightclic;
     }
 
-    public Pistol() {
+    public Classic() {
     }
 
     public int getHeadDamage() {
@@ -43,24 +43,24 @@ public class Pistol extends Weapons {
         this.legsDamage = legsDamage;
     }
 
-    public boolean isItsSilenced() {
-        return itsSilenced;
+    public boolean isRightclic() {
+        return rightclic;
     }
 
-    public void setItsSilenced(boolean itsSilenced) {
-        this.itsSilenced = itsSilenced;
+    public void setRightclic(boolean rightclic) {
+        this.rightclic = rightclic;
     }
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
-        Pistol pistol = (Pistol) o;
-        return headDamage == pistol.headDamage && bodyDamage == pistol.bodyDamage && legsDamage == pistol.legsDamage && itsSilenced == pistol.itsSilenced;
+        Classic classic = (Classic) o;
+        return headDamage == classic.headDamage && bodyDamage == classic.bodyDamage && legsDamage == classic.legsDamage && rightclic == classic.rightclic;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), headDamage, bodyDamage, legsDamage, itsSilenced);
+        return Objects.hash(super.hashCode(), headDamage, bodyDamage, legsDamage, rightclic);
     }
 }

@@ -4,13 +4,15 @@ import java.util.Objects;
 
 public class Weapons {
     private String name;
+    private int chargedsize;
     private double price;
     private boolean itsAutomatic;
     protected enum Category {PISTOLA, FRANCOTIRADOR, FUSIL}
     private Category category;
 
-    public Weapons(String name, double price, boolean itsAutomatic, Category category) {
+    public Weapons(String name, int chargedsize, double price, boolean itsAutomatic, Category category) {
         this.name = name;
+        this.chargedsize = chargedsize;
         this.price = price;
         this.itsAutomatic = itsAutomatic;
         this.category = category;
