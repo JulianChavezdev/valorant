@@ -1,12 +1,12 @@
 package stats;
-import Mapa;
+import mapas.Mapa;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class HistorialPartidas {
     private String idJugador;
-    private ArrayList<Mapa> listaMapas; // REQUISITO: Lista
-    private HashMap<String, Estadistica> registroStats; // REQUISITO: HashMap
+    private ArrayList<Mapa> listaMapas;
+    private HashMap<String, Estadistica> registroStats;
     private int nivelCuenta;
 
     public HistorialPartidas() {
@@ -14,21 +14,6 @@ public class HistorialPartidas {
         this.registroStats = new HashMap<>();
     }
 
-    // Métodos UD3: Añadir y Buscar
-    public void añadirMapaAlHistorial(Mapa m) {
-        listaMapas.add(m);
-    }
-
-    public void registrarEstadistica(String fecha, Estadistica e) {
-        registroStats.put(fecha, e);
-    }
-
-    public void mostrarResumen() {
-        for (Mapa m : listaMapas) { // Bucle
-            if (m.isEsCompetitivo()) { // Condicional
-                System.out.println("Jugada en competitivo: " + m.getNombreMapa());
-            }
-        }
-    }
-    // Getters, Setters y toString...
+    public void añadirMapa(Mapa m) { this.listaMapas.add(m); }
+    public void registrarStat(String fecha, Estadistica e) { this.registroStats.put(fecha, e); }
 }

@@ -7,11 +7,11 @@ public class Estadistica {
     private double puntuacionCombate;
 
     public Estadistica() {}
-    public Estadistica(int asesinatos, int muertes, int asistencias, double puntuacionCombate) {
-        this.asesinatos = asesinatos;
-        this.muertes = muertes;
-        this.asistencias = asistencias;
-        this.puntuacionCombate = puntuacionCombate;
+
+    public Estadistica(int as, int mu, int asi, double punt) {
+        this.asesinatos = as;
+        this.muertes = mu;
+        this.asistencias = asi;
+        this.puntuacionCombate = punt;
     }
-    // Getters, Setters y toString...
 }
