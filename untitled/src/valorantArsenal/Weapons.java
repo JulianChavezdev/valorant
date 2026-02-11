@@ -7,15 +7,16 @@ public class Weapons {
     private int chargedsize;
     private double price;
     private boolean itsAutomatic;
-    protected enum Category {PISTOLA, FRANCOTIRADOR, FUSIL}
-    private Category category;
+    protected enum Penetration {HIGH, MEDIUM, LOW}
+    private Penetration penetration;
 
-    public Weapons(String name, int chargedsize, double price, boolean itsAutomatic, Category category) {
+
+    public Weapons(String name, int chargedsize, double price, boolean itsAutomatic, Penetration penetration)) {
         this.name = name;
         this.chargedsize = chargedsize;
         this.price = price;
         this.itsAutomatic = itsAutomatic;
-        this.category = category;
+        this.penetration = penetration;
     }
 
     public Weapons() {
@@ -45,23 +46,35 @@ public class Weapons {
         this.itsAutomatic = itsAutomatic;
     }
 
-    public Category getCategory() {
-        return category;
+    public Penetration getCategory() {
+        return penetration;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
+    public void setCategory(Penetration category) {
+        this.penetration = category;
     }
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Weapons arma = (Weapons) o;
-        return Double.compare(price, arma.price) == 0 && itsAutomatic == arma.itsAutomatic && Objects.equals(name, arma.name) && category == arma.category;
+        return Double.compare(price, arma.price) == 0 && itsAutomatic == arma.itsAutomatic && Objects.equals(name, arma.name) && penetration == arma.penetration;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, price, itsAutomatic, category);
+        return Objects.hash(name, price, itsAutomatic, penetration);
+    }
+
+    @Override
+    public String toString() {
+        return "Weapons{" +
+                "name='" + name + '\'' +
+                ", chargedsize=" + chargedsize +
+                ", price=" + price +
+                ", itsAutomatic=" + itsAutomatic +
+                ", category=" + penetration +
+                '}';
     }
 }
+

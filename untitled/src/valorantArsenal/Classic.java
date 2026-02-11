@@ -6,14 +6,14 @@ public class Classic extends Weapons {
     private int headDamage;
     private int bodyDamage;
     private int legsDamage;
-    private boolean rightclic;
+    private boolean rightclick;
 
-    public Classic(String name, int chargedsize, double price, boolean itsAutomatic, Category category, int headDamage, int bodyDamage, int legsDamage, boolean rightclic) {
+    public Classic(String name, int chargedsize, double price, boolean itsAutomatic, Category category, int headDamage, int bodyDamage, int legsDamage, boolean rightclick) {
         super(name, chargedsize, price, itsAutomatic, category);
         this.headDamage = headDamage;
         this.bodyDamage = bodyDamage;
         this.legsDamage = legsDamage;
-        this.rightclic = rightclic;
+        this.rightclick = rightclick;
     }
 
     public Classic() {
@@ -43,12 +43,12 @@ public class Classic extends Weapons {
         this.legsDamage = legsDamage;
     }
 
-    public boolean isRightclic() {
-        return rightclic;
+    public boolean isRightclick() {
+        return rightclick;
     }
 
-    public void setRightclic(boolean rightclic) {
-        this.rightclic = rightclic;
+    public void setRightclick(boolean rightclick) {
+        this.rightclick = rightclick;
     }
 
     @Override
@@ -56,11 +56,11 @@ public class Classic extends Weapons {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         Classic classic = (Classic) o;
-        return headDamage == classic.headDamage && bodyDamage == classic.bodyDamage && legsDamage == classic.legsDamage && rightclic == classic.rightclic;
+        return headDamage == classic.headDamage && bodyDamage == classic.bodyDamage && legsDamage == classic.legsDamage && rightclick == classic.rightclick;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), headDamage, bodyDamage, legsDamage, rightclic);
+        return Objects.hash(super.hashCode(), headDamage, bodyDamage, legsDamage, rightclick);
     }
 }
