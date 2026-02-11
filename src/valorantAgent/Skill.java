@@ -6,22 +6,22 @@ public class Skill extends Agent{
     private String name;
     private int price;
     private boolean itsulti;
-    private enum Efect{DAÑO,CURACION,CEGUERA};
-    private Efect efect;
+    private enum Effect{DAÑO,CURACION,CEGUERA};
+    private Effect effect;
 
-    public Skill(String name, String country, int baseLife, boolean itslive, String name1, int price, boolean ulti, Efect efect) {
+    public Skill(String name, String country, int baseLife, boolean itslive, String name1, int price, boolean ulti, Effect effect) {
         super(name, country, baseLife, itslive);
         this.name = name1;
         this.price = price;
         this.itsulti = ulti;
-        this.efect = efect;
+        this.effect = effect;
     }
 
-    public Skill(String name, int price, boolean ulti, Efect efect) {
+    public Skill(String name, int price, boolean ulti, Effect effect) {
         this.name = name;
         this.price = price;
         this.itsulti = ulti;
-        this.efect = efect;
+        this.effect = effect;
     }
 
     @Override
@@ -29,12 +29,12 @@ public class Skill extends Agent{
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         Skill skill = (Skill) o;
-        return price == skill.price && itsulti == skill.itsulti && Objects.equals(name, skill.name) && efect == skill.efect;
+        return price == skill.price && itsulti == skill.itsulti && Objects.equals(name, skill.name) && effect == skill.effect;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), name, price, itsulti, efect);
+        return Objects.hash(super.hashCode(), name, price, itsulti, effect);
     }
 
     @Override
@@ -43,7 +43,7 @@ public class Skill extends Agent{
                 "name='" + name + '\'' +
                 ", price=" + price +
                 ", ulti=" + itsulti +
-                ", efect=" + efect +
+                ", effect=" + effect +
                 '}';
     }
 }
