@@ -6,7 +6,7 @@ public class Skill extends Agent{
     private String name;
     private int price;
     private boolean itsulti;
-    private enum Effect{DAÑO,CURACION,CEGUERA};
+    private enum Effect{DAMAGE, HEALING, BLINDNESS};
     private Effect effect;
 
     public Skill(String name, String country, int baseLife, boolean itslive, String name1, int price, boolean ulti, Effect effect) {
