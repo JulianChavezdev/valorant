@@ -11,7 +11,7 @@ public class Weapons {
     private Penetration penetration;
 
 
-    public Weapons(String name, int chargedsize, double price, boolean itsAutomatic, Penetration penetration)) {
+    public Weapons(String name, int chargedsize, double price, boolean itsAutomatic, Penetration penetration) {
         this.name = name;
         this.chargedsize = chargedsize;
         this.price = price;
