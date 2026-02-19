@@ -8,8 +8,8 @@ public class Pistol extends Weapons {
     private int legsDamage;
     private boolean itsSilenced;
 
-    public Pistol(String name, int chargedsize, double price, boolean itsAutomatic, Category category, int headDamage, int bodyDamage, int legsDamage, boolean itsSilenced) {
-        super(name, chargedsize, price, itsAutomatic, category);
+    public Pistol(String name, int chargedsize, double price, boolean itsAutomatic, Penetration penetration, int headDamage, int bodyDamage, int legsDamage, boolean itsSilenced) {
+        super(name, chargedsize, price, itsAutomatic, penetration);
         this.headDamage = headDamage;
         this.bodyDamage = bodyDamage;
         this.legsDamage = legsDamage;

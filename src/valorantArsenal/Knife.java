@@ -6,12 +6,12 @@ public class Knife extends Weapons {
     private int backDamageLc;
     private int backDamageRc;
 
-    public Knife(String name, int chargedsize, double price, boolean itsAutomatic, Category category, int bodyDamageLc, int bodyDamageRc, int headDamageLc, int headDamageRc) {
-        super(name, chargedsize, price, itsAutomatic, category);
-        this.frontDamageLc = bodyDamageLc;
-        this.frontDamageRc = bodyDamageRc;
-        this.backDamageLc = headDamageLc;
-        this.backDamageRc = headDamageRc;
+    public Knife(String name, int chargedsize, double price, boolean itsAutomatic, Penetration penetration, int frontDamageLc, int frontDamageRc, int backDamageLc, int backDamageRc) {
+        super(name, chargedsize, price, itsAutomatic, penetration);
+        this.frontDamageLc = frontDamageLc;
+        this.frontDamageRc = frontDamageRc;
+        this.backDamageLc = backDamageLc;
+        this.backDamageRc = backDamageRc;
     }
 
     public Knife() {

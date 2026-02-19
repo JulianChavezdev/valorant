@@ -9,12 +9,12 @@ public class Sniper extends Weapons {
     public enum Scope {OUTLAW, MARSHAL, OPERATORMIN, OPERATORMAX};
     protected Scope scope;
 
-    public Sniper(String name, int chargedsize, double price, boolean itsAutomatic, Category category, int headDamage, int bodyDamage, int legsDamage, Scope scope) {
-        super(name, chargedsize, price, itsAutomatic, category);
+    public Sniper(String name, int chargedsize, double price, boolean itsAutomatic, Penetration penetration, int headDamage, int legsDamage, Scope scope, int bodyDamage) {
+        super(name, chargedsize, price, itsAutomatic, penetration);
         this.headDamage = headDamage;
-        this.bodyDamage = bodyDamage;
         this.legsDamage = legsDamage;
         this.scope = scope;
+        this.bodyDamage = bodyDamage;
     }
 
     public Sniper(int headDamage, int bodyDamage, int legsDamage, Scope scope) {
@@ -22,10 +22,6 @@ public class Sniper extends Weapons {
         this.bodyDamage = bodyDamage;
         this.legsDamage = legsDamage;
         this.scope = scope;
-    }
-
-    public Sniper(String name, int chargedsize, double price, boolean itsAutomatic, Category category) {
-        super(name, chargedsize, price, itsAutomatic, category);
     }
 
     public Sniper() {
