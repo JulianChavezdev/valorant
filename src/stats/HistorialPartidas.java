@@ -1,19 +1,20 @@
 package stats;
-import mapas.Mapa;
+
+import maps.Map;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class HistorialPartidas {
-    private String idJugador;
-    private ArrayList<Mapa> listaMapas;
-    private HashMap<String, Estadistica> registroStats;
-    private int nivelCuenta;
+public class MatchHistory {
+    private String playerId;
+    private ArrayList<Map> mapList;
+    private HashMap<String, Statistic> statsRecord;
+    private int accountLevel;
 
-    public HistorialPartidas() {
-        this.listaMapas = new ArrayList<>();
-        this.registroStats = new HashMap<>();
+    public MatchHistory() {
+        this.mapList = new ArrayList<>();
+        this.statsRecord = new HashMap<>();
     }
 
-    public void añadirMapa(Mapa m) { this.listaMapas.add(m); }
-    public void registrarStat(String fecha, Estadistica e) { this.registroStats.put(fecha, e); }
+    public void addMap(Map m) { this.mapList.add(m); }
+    public void recordStat(String date, Statistic s) { this.statsRecord.put(date, s); }
 }
