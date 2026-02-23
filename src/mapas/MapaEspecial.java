@@ -1,18 +1,18 @@
-package mapas;
+package maps;
 
-public class MapaEspecial extends Mapa {
-    private String mecanicaUnica;
-    private boolean interactivo;
-    private double alturaMaxima;
-    private int complejidad;
+public class SpecialMap extends Map {
+    private String uniqueMechanic;
+    private boolean interactive;
+    private double maxHeight;
+    private int complexity;
 
-    public MapaEspecial() {}
+    public SpecialMap() {}
 
-    public MapaEspecial(String nom, String ubi, boolean comp, int pts, String mec, boolean inter, double alt, int compj) {
-        super(nom, ubi, comp, pts);
-        this.mecanicaUnica = mec;
-        this.interactivo = inter;
-        this.alturaMaxima = alt;
-        this.complejidad = compj;
+    public SpecialMap(String name, String location, boolean comp, int pts, String mec, boolean inter, double height, int complexity) {
+        super(name, location, comp, pts);
+        this.uniqueMechanic = mec;
+        this.interactive = inter;
+        this.maxHeight = height;
+        this.complexity = complexity;
     }
 }
