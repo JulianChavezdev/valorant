@@ -1,23 +1,24 @@
-package mapas;
+package maps;
+
 import java.util.ArrayList;
 
-public abstract class Mapa {
-    protected String nombreMapa;
-    protected String ubicacion;
-    protected boolean esCompetitivo;
-    protected int puntosDeInteres;
-    protected ArrayList<String> zonas;
+public abstract class Map {
+    protected String mapName;
+    protected String location;
+    protected boolean isCompetitive;
+    protected int pointsOfInterest;
+    protected ArrayList<String> zones;
 
-    public Mapa() { this.zonas = new ArrayList<>(); }
+    public Map() { this.zones = new ArrayList<>(); }
 
-    public Mapa(String nombreMapa, String ubicacion, boolean esCompetitivo, int puntosDeInteres) {
-        this.nombreMapa = nombreMapa;
-        this.ubicacion = ubicacion;
-        this.esCompetitivo = esCompetitivo;
-        this.puntosDeInteres = puntosDeInteres;
-        this.zonas = new ArrayList<>();
+    public Map(String mapName, String location, boolean isCompetitive, int pointsOfInterest) {
+        this.mapName = mapName;
+        this.location = location;
+        this.isCompetitive = isCompetitive;
+        this.pointsOfInterest = pointsOfInterest;
+        this.zones = new ArrayList<>();
     }
 
     @Override
-    public String toString() { return "Mapa: " + nombreMapa + " (" + ubicacion + ")"; }
+    public String toString() { return "Map: " + mapName + " (" + location + ")"; }
 }
