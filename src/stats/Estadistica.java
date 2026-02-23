@@ -1,17 +1,17 @@
 package stats;
 
-public class Estadistica {
-    private int asesinatos;
-    private int muertes;
-    private int asistencias;
-    private double puntuacionCombate;
+public class Statistic {
+    private int kills;
+    private int deaths;
+    private int assists;
+    private double combatScore;
 
-    public Estadistica() {}
+    public Statistic() {}
 
-    public Estadistica(int as, int mu, int asi, double punt) {
-        this.asesinatos = as;
-        this.muertes = mu;
-        this.asistencias = asi;
-        this.puntuacionCombate = punt;
+    public Statistic(int kills, int deaths, int assists, double combatScore) {
+        this.kills = kills;
+        this.deaths = deaths;
+        this.assists = assists;
+        this.combatScore = combatScore;
     }
 }
