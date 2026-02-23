@@ -1,25 +1,25 @@
-import mapas.*;
+import maps.*;
 import stats.*;
 
 public class Main {
     public static void main(String[] args) {
-        // 1. Crear objetos (2 de cada clase hija para la rúbrica)
-        MapaSitio bind = new MapaSitio("Bind", "Marruecos", true, 5, 2, true, 45.0, true);
-        MapaSitio haven = new MapaSitio("Haven", "Bután", true, 7, 3, false, 60.0, false);
-        
-        MapaEspecial range = new MapaEspecial("The Range", "Isla", false, 10, "Entrenamiento", true, 100.0, 1);
-        MapaEspecial abyss = new MapaEspecial("Abyss", "Desconocida", true, 6, "Caídas", true, 250.0, 5);
+        // 1. Create objects (2 of each child class for the rubric)
+        MapSite bind = new MapSite("Bind", "Morocco", true, 5, 2, true, 45.0, true);
+        MapSite haven = new MapSite("Haven", "Bhutan", true, 7, 3, false, 60.0, false);
 
-        // 2. Gestionar Historial
-        HistorialPartidas h = new HistorialPartidas();
-        h.añadirMapa(bind);
-        h.añadirMapa(range);
-        
-        Estadistica s1 = new Estadistica(22, 11, 4, 280.5);
-        h.registrarStat("2024-03-22", s1);
+        SpecialMap range = new SpecialMap("The Range", "Island", false, 10, "Training", true, 100.0, 1);
+        SpecialMap abyss = new SpecialMap("Abyss", "Unknown", true, 6, "Falls", true, 250.0, 5);
 
-        System.out.println("--- PROYECTO VALORANT: KINGDOM CORPORATION ---");
-        System.out.println("Estructura de datos cargada correctamente.");
-        System.out.println("Mapa actual: " + bind.toString());
+        // 2. Manage Match History
+        MatchHistory h = new MatchHistory();
+        h.addMap(bind);
+        h.addMap(range);
+
+        Statistic s1 = new Statistic(22, 11, 4, 280.5);
+        h.recordStat("2024-03-22", s1);
+
+        System.out.println("--- VALORANT PROJECT: KINGDOM CORPORATION ---");
+        System.out.println("Data structure loaded successfully.");
+        System.out.println("Current map: " + bind.toString());
     }
 }
