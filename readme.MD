@@ -4,7 +4,7 @@
 ![Status](https://img.shields.io/badge/Versión-1.0_Estable-green?style=for-the-badge)
 ![UD3](https://img.shields.io/badge/Evaluación-UD3_Estructuras_Control-blue?style=for-the-badge)
 
-eEste proyecto es un simulador táctico de backend basado en el universo de **Valorant**. La aplicación gestiona de forma integral la lógica de combate, la jerarquía de personajes y el cálculo de daño balístico dinámico, cumpliendo estrictamente con los requisitos de programación orientada a objetos y gestión de colecciones.
+Este proyecto es un simulador táctico de backend basado en el universo de **Valorant**. La aplicación gestiona de forma integral la lógica de combate, la jerarquía de personajes y el cálculo de daño balístico dinámico, cumpliendo estrictamente con los requisitos de programación orientada a objetos y gestión de colecciones.
 
 ---
 
