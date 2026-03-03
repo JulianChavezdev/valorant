@@ -1,4 +1,3 @@
-package stats;
 
 public class Statistic {
     private int kills;
