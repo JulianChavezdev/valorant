@@ -32,6 +32,13 @@ public class Weapons {
         this.name = name;
     }
 
+    public int getChargedsize() {
+        return chargedsize;
+    }
+    public void setChargedsize(int chargedsize) {
+        this.chargedsize = chargedsize;
+    }
+
     public double getPrice() {
         return price;
     }
