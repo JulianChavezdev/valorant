@@ -72,6 +72,29 @@ public class AgentsTeam extends Agent {
         return Objects.hash(super.hashCode(), teamName, agentsList, agentByMap, victories);
     }
 
+
+    public void addAgent(Agent agent) {
+        agentsList.add(agent);
+    }
+    public void removeAgent(Agent agent) {
+        agentsList.remove(agent);
+    }
+    public Agent findAgent(String name) {
+        for (Agent a : agentsList) {
+            if (a.getName().equals(name)) return a;
+        }
+        return null;
+    }
+
+
+    public void assignAgentToMap(String mapName, Agent agent) {
+        agentByMap.put(mapName, agent);
+    }
+    public void removeAgentFromMap(String mapName) {
+        agentByMap.remove(mapName);
+    }
+
+
     @Override
     public String toString() {
         return "AgentsTeam{" +

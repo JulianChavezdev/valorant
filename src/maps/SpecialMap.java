@@ -1,5 +1,7 @@
 package maps;
 
+import java.util.Objects;
+
 public class SpecialMap extends Map {
     private String uniqueMechanic;
     private boolean interactive;
@@ -46,5 +48,27 @@ public class SpecialMap extends Map {
 
     public void setComplexity(int complexity) {
         this.complexity = complexity;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        SpecialMap that = (SpecialMap) o;
+        return interactive == that.interactive && Double.compare(maxHeight, that.maxHeight) == 0 && complexity == that.complexity && Objects.equals(uniqueMechanic, that.uniqueMechanic);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(uniqueMechanic, interactive, maxHeight, complexity);
+    }
+
+    @Override
+    public String toString() {
+        return "SpecialMap{" +
+                "uniqueMechanic='" + uniqueMechanic + '\'' +
+                ", interactive=" + interactive +
+                ", maxHeight=" + maxHeight +
+                ", complexity=" + complexity +
+                '}';
     }
 }

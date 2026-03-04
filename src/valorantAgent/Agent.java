@@ -1,5 +1,6 @@
 package valorantAgent;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class Agent {
@@ -7,6 +8,7 @@ public class Agent {
     private String country;
     private int baseLife;
     private boolean Itslive;
+    private ArrayList<String> matchHistory = new ArrayList<>();
 
     public Agent(String name, String country, int baseLife, boolean itslive) {
         this.name = name;
@@ -49,6 +51,15 @@ public class Agent {
     public void setItslive(boolean itslive) {
         Itslive = itslive;
     }
+
+    public void addMatch(String result) {
+        matchHistory.add(result);
+    }
+    public void removeMatch(String result) {
+        matchHistory.remove(result);
+    }
+
+
 
     @Override
     public boolean equals(Object o) {

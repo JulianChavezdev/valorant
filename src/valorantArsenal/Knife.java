@@ -1,5 +1,7 @@
 package valorantArsenal;
 
+import java.util.Objects;
+
 public class Knife extends Weapons {
     private int frontDamageLc;
     private int frontDamageRc;
@@ -55,5 +57,28 @@ public class Knife extends Weapons {
     //Aqui los agentes seran de la clase agentes, pondremos un if para el daño si es de leftclic o rightclic
     public String backKnifing(int agente1, int agente2){
         return "(Agent1) Le ha quidado (cantidad de vida) a (Agent2)";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Knife knife = (Knife) o;
+        return frontDamageLc == knife.frontDamageLc && frontDamageRc == knife.frontDamageRc && backDamageLc == knife.backDamageLc && backDamageRc == knife.backDamageRc;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), frontDamageLc, frontDamageRc, backDamageLc, backDamageRc);
+    }
+
+    @Override
+    public String toString() {
+        return "Knife{" +
+                "frontDamageLc=" + frontDamageLc +
+                ", frontDamageRc=" + frontDamageRc +
+                ", backDamageLc=" + backDamageLc +
+                ", backDamageRc=" + backDamageRc +
+                '}';
     }
 }

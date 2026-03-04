@@ -1,5 +1,6 @@
 package valorantArsenal;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class Weapons {
@@ -9,6 +10,7 @@ public class Weapons {
     private boolean itsAutomatic;
     public enum Penetration {HIGH, MEDIUM, LOW}
     protected Penetration penetration;
+    private ArrayList<String> skins = new ArrayList<>();
 
 
     public Weapons(String name, int chargedsize, double price, boolean itsAutomatic, Penetration penetration) {
@@ -52,6 +54,19 @@ public class Weapons {
 
     public void setCategory(Penetration category) {
         this.penetration = category;
+    }
+
+    public void addSkin(String skin) {
+        skins.add(skin);
+    }
+    public void removeSkin(String skin) {
+        skins.remove(skin);
+    }
+    public String findSkin(String skin) {
+        for (String s : skins) {
+            if (s.equalsIgnoreCase(skin)) return s;
+        }
+        return null;
     }
 
     @Override
