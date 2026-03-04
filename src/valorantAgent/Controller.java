@@ -70,4 +70,14 @@ public class Controller extends Agent {
     public int hashCode() {
         return Objects.hash(super.hashCode(), skillC, skillQ, skillE, skillX);
     }
+
+    @Override
+    public String toString() {
+        return "Controller{" +
+                "skillC=" + skillC +
+                ", skillQ=" + skillQ +
+                ", skillE=" + skillE +
+                ", skillX=" + skillX +
+                '}';
+    }
 }

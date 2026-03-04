@@ -74,5 +74,13 @@ public class Sentinel extends Agent{
         return Objects.hash(super.hashCode(), skillC, skillQ, skillE, skillX);
     }
 
-
+    @Override
+    public String toString() {
+        return "Sentinel{" +
+                "skillC=" + skillC +
+                ", skillQ=" + skillQ +
+                ", skillE=" + skillE +
+                ", skillX=" + skillX +
+                '}';
+    }
 }

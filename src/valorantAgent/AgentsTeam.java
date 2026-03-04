@@ -71,5 +71,15 @@ public class AgentsTeam extends Agent {
     public int hashCode() {
         return Objects.hash(super.hashCode(), teamName, agentsList, agentByMap, victories);
     }
+
+    @Override
+    public String toString() {
+        return "AgentsTeam{" +
+                "teamName='" + teamName + '\'' +
+                ", agentsList=" + agentsList +
+                ", agentByMap=" + agentByMap +
+                ", victories=" + victories +
+                '}';
+    }
 }
 

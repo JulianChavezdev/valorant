@@ -63,4 +63,15 @@ public class Pistol extends Weapons {
     public int hashCode() {
         return Objects.hash(super.hashCode(), headDamage, bodyDamage, legsDamage, itsSilenced);
     }
+
+    @Override
+    public String toString() {
+        return "Pistol{" +
+                "headDamage=" + headDamage +
+                ", bodyDamage=" + bodyDamage +
+                ", legsDamage=" + legsDamage +
+                ", itsSilenced=" + itsSilenced +
+                '}';
+    }
 }
+
