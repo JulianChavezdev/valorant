@@ -6,7 +6,7 @@ public class Skill extends Agent{
     private String name;
     private int price;
     private boolean itsulti;
-    private enum Effect{DAMAGE, HEALING, BLINDNESS};
+    public enum Effect{DAMAGE, HEALING, BLINDNESS};
     private Effect effect;
 
     public Skill(String name, String country, int baseLife, boolean itslive, String name1, int price, boolean ulti, Effect effect) {
@@ -14,6 +14,40 @@ public class Skill extends Agent{
         this.name = name1;
         this.price = price;
         this.itsulti = ulti;
+        this.effect = effect;
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public boolean isItsulti() {
+        return itsulti;
+    }
+
+    public void setItsulti(boolean itsulti) {
+        this.itsulti = itsulti;
+    }
+
+    public Effect getEffect() {
+        return effect;
+    }
+
+    public void setEffect(Effect effect) {
         this.effect = effect;
     }
 

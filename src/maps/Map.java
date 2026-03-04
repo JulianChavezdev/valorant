@@ -1,6 +1,7 @@
 package maps;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Map {
     protected String mapName;
@@ -8,6 +9,7 @@ public class Map {
     protected boolean isCompetitive;
     protected int pointsOfInterest;
     protected ArrayList<String> zones;
+    private HashMap<String, String> zoneTypes = new HashMap<>();
 
     public Map() { this.zones = new ArrayList<>(); }
 
@@ -70,6 +72,15 @@ public class Map {
             if (z.equals(name)) return z;
         }
         return null;
+    }
+    public void addZoneType(String zone, String type) {
+        zoneTypes.put(zone, type);
+    }
+    public void removeZoneType(String zone) {
+        zoneTypes.remove(zone);
+    }
+    public String getZoneType(String zone) {
+        return zoneTypes.get(zone);
     }
 
     @Override

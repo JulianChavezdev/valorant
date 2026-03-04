@@ -2,7 +2,7 @@ package valorantAgent;
 
 import java.util.Objects;
 
-;
+
 
 public class Sentinel extends Agent{
     private Skill skillC;
