@@ -72,4 +72,13 @@ public class Sniper extends Weapons {
         return Objects.hash(super.hashCode(), headDamage, bodyDamage, legsDamage, scope);
     }
 
+    @Override
+    public String toString() {
+        return "Sniper{" +
+                "headDamage=" + headDamage +
+                ", bodyDamage=" + bodyDamage +
+                ", legsDamage=" + legsDamage +
+                ", scope=" + scope +
+                '}';
+    }
 }

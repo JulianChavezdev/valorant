@@ -63,4 +63,14 @@ public class Classic extends Weapons {
     public int hashCode() {
         return Objects.hash(super.hashCode(), headDamage, bodyDamage, legsDamage, rightclick);
     }
+
+    @Override
+    public String toString() {
+        return "Classic{" +
+                "headDamage=" + headDamage +
+                ", bodyDamage=" + bodyDamage +
+                ", legsDamage=" + legsDamage +
+                ", rightclick=" + rightclick +
+                '}';
+    }
 }
