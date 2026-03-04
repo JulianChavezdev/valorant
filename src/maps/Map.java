@@ -2,7 +2,7 @@ package maps;
 
 import java.util.ArrayList;
 
-public abstract class Map {
+public class Map {
     protected String mapName;
     protected String location;
     protected boolean isCompetitive;

@@ -7,8 +7,8 @@ public class Weapons {
     private int chargedsize;
     private double price;
     private boolean itsAutomatic;
-    protected enum Penetration {HIGH, MEDIUM, LOW}
-    private Penetration penetration;
+    public enum Penetration {HIGH, MEDIUM, LOW}
+    protected Penetration penetration;
 
 
     public Weapons(String name, int chargedsize, double price, boolean itsAutomatic, Penetration penetration) {

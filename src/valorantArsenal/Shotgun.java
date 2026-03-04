@@ -2,13 +2,15 @@ package valorantArsenal;
 
 import java.util.Objects;
 
-public class Shotgun extends Weapons{
+public class Shotgun extends Weapons {
     private int headDamage;
     private int bodyDamage;
     private int legsDamage;
     private int rightclickdamage;
-    public enum ShotgunName {SHORTY, BUCKY, JUDGE};
+    public enum ShotgunName {SHORTY, BUCKY, JUDGE}
     private ShotgunName shotgunName;
+
+    public Shotgun() {}
 
     public Shotgun(String name, int chargedsize, double price, boolean itsAutomatic, Penetration penetration, int headDamage, int bodyDamage, int legsDamage, int rightclickdamage, ShotgunName shotgunName) {
         super(name, chargedsize, price, itsAutomatic, penetration);
@@ -17,10 +19,6 @@ public class Shotgun extends Weapons{
         this.legsDamage = legsDamage;
         this.rightclickdamage = rightclickdamage;
         this.shotgunName = shotgunName;
-    }
-
-    public Shotgun(String name, int chargedsize, double price, boolean itsAutomatic, Category category) {
-        super(name, chargedsize, price, itsAutomatic, category);
     }
 
     public int getHeadDamage() {

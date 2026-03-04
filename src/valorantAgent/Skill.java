@@ -17,6 +17,10 @@ public class Skill extends Agent{
         this.effect = effect;
     }
 
+    public Skill(String name, String country, int baseLife, boolean itslive) {
+        super(name, country, baseLife, itslive);
+    }
+
     public Skill(String name, int price, boolean ulti, Effect effect) {
         this.name = name;
         this.price = price;

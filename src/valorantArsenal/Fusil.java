@@ -16,6 +16,9 @@ public class Fusil extends Weapons{
         this.burst = burst;
     }
 
+    public Fusil() {
+    }
+
     public Fusil(String name, int chargedsize, double price, boolean itsAutomatic, Penetration penetration) {
         super(name, chargedsize, price, itsAutomatic, penetration);
     }
