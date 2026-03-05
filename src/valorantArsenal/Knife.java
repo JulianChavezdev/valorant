@@ -1,5 +1,7 @@
 package valorantArsenal;
 
+import valorantAgent.Agent;
+
 import java.util.Objects;
 
 public class Knife extends Weapons {
@@ -50,13 +52,17 @@ public class Knife extends Weapons {
     public void setBackDamageRc(int backDamageRc) {
         this.backDamageRc = backDamageRc;
     }
-    //Aqui los agentes seran de la clase agentes pondremos un if para el daño si es de leftclic o rightclic
-    public String frontKnifing(int agente1, int agente2){
-        return "(Agent1) Le ha quidado (cantidad de vida) a (Agent2)";
+    public String frontKnifing(Agent agent1, Agent agent2){
+        return agent1+"has taken it "+ this.frontDamageLc+ " from "+ agent2;;
     }
-    //Aqui los agentes seran de la clase agentes, pondremos un if para el daño si es de leftclic o rightclic
-    public String backKnifing(int agente1, int agente2){
-        return "(Agent1) Le ha quidado (cantidad de vida) a (Agent2)";
+    public String backKnifing(Agent agent1, Agent agent2){
+        return agent1+"has taken it "+ this.backDamageLc+ " from "+ agent2;
+    }
+    public String frontKnifingRc(Agent agent1, Agent agent2){
+        return agent1+"has taken it "+ this.frontDamageRc+ " from "+ agent2;;
+    }
+    public String backKnifingRc(Agent agent1, Agent agent2){
+        return agent1+"has taken it "+ this.backDamageRc+ " from "+ agent2;
     }
 
     @Override
