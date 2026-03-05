@@ -17,6 +17,9 @@ public class Skill extends Agent{
         this.effect = effect;
     }
 
+    public Skill() {
+    }
+
     @Override
     public String getName() {
         return name;
