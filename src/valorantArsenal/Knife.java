@@ -53,16 +53,16 @@ public class Knife extends Weapons {
         this.backDamageRc = backDamageRc;
     }
     public String frontKnifing(Agent agent1, Agent agent2){
-        return agent1+"has taken it "+ this.frontDamageLc+ " from "+ agent2;
+        return agent1+"has taken it "+ this.frontDamageLc+ " hp from "+ agent2 + " with Knife";
     }
     public String backKnifing(Agent agent1, Agent agent2){
-        return agent1+"has taken it "+ this.backDamageLc+ " from "+ agent2;
+        return agent1+"has taken it "+ this.backDamageLc+ " hp from "+ agent2 + " with Knife";
     }
     public String frontKnifingRc(Agent agent1, Agent agent2){
-        return agent1+"has taken it "+ this.frontDamageRc+ " from "+ agent2;
+        return agent1+"has taken it "+ this.frontDamageRc+ " hp from "+ agent2 + " with Knife";
     }
     public String backKnifingRc(Agent agent1, Agent agent2){
-        return agent1+"has taken it "+ this.backDamageRc+ " from "+ agent2;
+        return agent1+"has taken it "+ this.backDamageRc+ " hp from "+ agent2 + " with Knife";
     }
 
     @Override

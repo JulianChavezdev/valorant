@@ -1,6 +1,9 @@
 package valorantArsenal;
 
+import valorantAgent.Agent;
+
 import java.util.Objects;
+
 
 public class Classic extends Weapons {
     private int headDamage;
@@ -10,9 +13,9 @@ public class Classic extends Weapons {
 
     public Classic(String name, int chargedsize, double price, boolean itsAutomatic, Penetration penetration, int headDamage, int bodyDamage, int legsDamage, boolean rightclick) {
         super(name, chargedsize, price, itsAutomatic, penetration);
-        this.headDamage = headDamage;
-        this.bodyDamage = bodyDamage;
-        this.legsDamage = legsDamage;
+        this.headDamage = 78;
+        this.bodyDamage = 26;
+        this.legsDamage = 22;
         this.rightclick = rightclick;
     }
 
@@ -59,6 +62,16 @@ public class Classic extends Weapons {
         return headDamage == classic.headDamage && bodyDamage == classic.bodyDamage && legsDamage == classic.legsDamage && rightclick == classic.rightclick;
     }
 
+    public String shootLc(Agent agent1, Agent agent2){
+        int porcentege = (int)(Math.random() * 100) + 1;
+        if(porcentege >=1 && porcentege <=40){
+            return
+        }
+    }
+    public String shootRc(Agent agent1, Agent agent2){
+        return agent1+"has taken it "+ this.backDamageRc+ " hp from "+ agent2 + " with Knife";
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), headDamage, bodyDamage, legsDamage, rightclick);
@@ -73,4 +86,5 @@ public class Classic extends Weapons {
                 ", rightclick=" + rightclick +
                 '}';
     }
+
 }
