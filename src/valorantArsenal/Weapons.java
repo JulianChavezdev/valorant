@@ -1,5 +1,7 @@
 package valorantArsenal;
 
+import Exceptions.InvalidPriceException;
+
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -43,7 +45,8 @@ public class Weapons {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(double price) throws InvalidPriceException {
+        if (price < 0) throw new InvalidPriceException(price);
         this.price = price;
     }
 

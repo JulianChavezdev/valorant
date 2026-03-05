@@ -11,8 +11,8 @@ public class Sentinel extends Agent{
     private Skill skillX;
 
 
-    public Sentinel(String name, String country, int baseLife, boolean itslive, Skill skillC, Skill skillQ, Skill skillE, Skill skillX) {
-        super(name, country, baseLife, itslive);
+    public Sentinel(String name, String country, int baseLife, boolean isAlive, Skill skillC, Skill skillQ, Skill skillE, Skill skillX) {
+        super(name, country, baseLife, isAlive);
         this.skillC = skillC;
         this.skillQ = skillQ;
         this.skillE = skillE;
