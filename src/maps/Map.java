@@ -2,6 +2,7 @@ package maps;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Objects;
 
 public class Map {
     protected String mapName;
@@ -81,6 +82,18 @@ public class Map {
     }
     public String getZoneType(String zone) {
         return zoneTypes.get(zone);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Map map = (Map) o;
+        return isCompetitive == map.isCompetitive && pointsOfInterest == map.pointsOfInterest && Objects.equals(mapName, map.mapName) && Objects.equals(location, map.location) && Objects.equals(zones, map.zones) && Objects.equals(zoneTypes, map.zoneTypes);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(mapName, location, isCompetitive, pointsOfInterest, zones, zoneTypes);
     }
 
     @Override
