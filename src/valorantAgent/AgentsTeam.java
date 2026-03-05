@@ -1,6 +1,6 @@
 package valorantAgent;
 
-import java.util.ArrayList;
+import Exceptions.AgentNotFoundException;import Exceptions.TeamFullException;import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Objects;
 
@@ -59,6 +59,13 @@ public class AgentsTeam extends Agent {
 
     }
 
+  public void addAgent(Agent agent) throws TeamFullException{
+        if (agentsList.size() > 5) throw new TeamFullException();
+        agentsList.add(agent);
+  }
+
+
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
@@ -73,17 +80,11 @@ public class AgentsTeam extends Agent {
     }
 
 
-    public void addAgent(Agent agent) {
-        agentsList.add(agent);
-    }
-    public void removeAgent(Agent agent) {
-        agentsList.remove(agent);
-    }
-    public Agent findAgent(String name) {
+    public Agent findAgentOrThrow(String name) throws AgentNotFoundException {
         for (Agent a : agentsList) {
             if (a.getName().equals(name)) return a;
         }
-        return null;
+        throw new AgentNotFoundException(name);
     }
 
 

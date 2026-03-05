@@ -1,5 +1,7 @@
 package valorantAgent;
 
+import Exceptions.AgentNotFoundException;
+
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -58,7 +60,6 @@ public class Agent {
     public void removeMatch(String result) {
         matchHistory.remove(result);
     }
-
 
 
     @Override
