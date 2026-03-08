@@ -1,4 +1,4 @@
-package ui;
+package UI;
 
 import valorantArsenal.Weapons;
 import javax.swing.*;

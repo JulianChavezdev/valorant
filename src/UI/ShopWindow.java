@@ -1,4 +1,4 @@
-package ui;
+package UI;
 
 import UI.AddWeaponForm;
 import UI.BuyWeaponForm;
