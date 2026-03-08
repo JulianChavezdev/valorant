@@ -1,6 +1,6 @@
 package valorantAgent;
 
-import Exceptions.AgentNotFoundException;
+import Exceptions.DeadAgentException;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -9,14 +9,14 @@ public class Agent {
     private String name;
     private String country;
     private int baseLife;
-    private boolean Itslive;
+    private boolean isAlive;
     private ArrayList<String> matchHistory = new ArrayList<>();
 
-    public Agent(String name, String country, int baseLife, boolean itslive) {
+    public Agent(String name, String country, int baseLife, boolean isAlive) {
         this.name = name;
         this.country = country;
         this.baseLife = baseLife;
-        Itslive = itslive;
+        isAlive = isAlive;
     }
 
     public Agent() {
@@ -46,19 +46,25 @@ public class Agent {
         this.baseLife = baseLife;
     }
 
-    public boolean isItslive() {
-        return Itslive;
+    public boolean isAlive() {
+        return isAlive;
     }
 
-    public void setItslive(boolean itslive) {
-        Itslive = itslive;
+    public void isAlive(boolean itslive) {
+        isAlive = itslive;
     }
 
     public void addMatch(String result) {
         matchHistory.add(result);
     }
+
     public void removeMatch(String result) {
         matchHistory.remove(result);
+    }
+
+    public void useSkill() throws DeadAgentException {
+        if (!isAlive) throw new DeadAgentException(name);
+        System.out.println(name + " uses a skill");
     }
 
 
@@ -66,12 +72,12 @@ public class Agent {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Agent agent = (Agent) o;
-        return baseLife == agent.baseLife && Itslive == agent.Itslive && Objects.equals(name, agent.name) && Objects.equals(country, agent.country);
+        return baseLife == agent.baseLife && isAlive == agent.isAlive && Objects.equals(name, agent.name) && Objects.equals(country, agent.country);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, country, baseLife, Itslive);
+        return Objects.hash(name, country, baseLife, isAlive);
     }
 
     @Override
@@ -80,7 +86,7 @@ public class Agent {
                 "name='" + name + '\'' +
                 ", country='" + country + '\'' +
                 ", baseLife=" + baseLife +
-                ", Itslive=" + Itslive +
+                ", isAlive=" + isAlive +
                 '}';
     }
 

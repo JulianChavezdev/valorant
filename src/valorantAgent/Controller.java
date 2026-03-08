@@ -8,8 +8,8 @@ public class Controller extends Agent {
     private Skill skillE;
     private Skill skillX;
 
-    public Controller(String name, String country, int baseLife, boolean itslive, Skill skillC, Skill skillQ, Skill skillE, Skill skillX) {
-        super(name, country, baseLife, itslive);
+    public Controller(String name, String country, int baseLife, boolean isAlive, Skill skillC, Skill skillQ, Skill skillE, Skill skillX) {
+        super(name, country, baseLife, isAlive);
         this.skillC = skillC;
         this.skillQ = skillQ;
         this.skillE = skillE;

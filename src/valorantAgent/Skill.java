@@ -9,8 +9,8 @@ public class Skill extends Agent{
     public enum Effect{DAMAGE, HEALING, BLINDNESS};
     private Effect effect;
 
-    public Skill(String name, String country, int baseLife, boolean itslive, String name1, int price, boolean ulti, Effect effect) {
-        super(name, country, baseLife, itslive);
+    public Skill(String name, String country, int baseLife, boolean isAlive, String name1, int price, boolean ulti, Effect effect) {
+        super(name, country, baseLife, isAlive);
         this.name = name1;
         this.price = price;
         this.itsulti = ulti;

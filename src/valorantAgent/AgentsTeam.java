@@ -11,8 +11,8 @@ public class AgentsTeam extends Agent {
     private int victories;
 
 
-    public AgentsTeam(String name, String country, int baseLife, boolean itslive) {
-        super(name, country, baseLife, itslive);
+    public AgentsTeam(String name, String country, int baseLife, boolean isAlive) {
+        super(name, country, baseLife, isAlive);
     }
 
     public AgentsTeam() {
