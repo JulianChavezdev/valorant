@@ -6,51 +6,63 @@ import valorantArsenal.*;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ShopWindow extends JFrame {
 
     private ArrayList<Weapons> arsenal;
     private JPanel weaponsPanel;
 
+    private static final HashMap<String, String> IMAGES = new HashMap<>() {{
+        put("Vandal",   "src/Img/vandal.png");
+        put("Phantom",  "src/Img/phantom.png");
+        put("Operator", "src/Img/operator.png");
+        put("Marshal",  "src/Img/marshal.png");
+        put("Sheriff",  "src/Img/sheriff.png");
+        put("Ghost",    "src/Img/ghost.png");
+        put("Judge",    "src/Img/judge.png");
+        put("Classic",  "src/Img/classic.png");
+    }};
+
     public ShopWindow() {
         setTitle("Valorant Shop");
-        setSize(700, 500);
+        setSize(900, 700);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-        setLayout(new BorderLayout());
 
-        JLabel title = new JLabel("TIENDA DE ARMAS", SwingConstants.CENTER);
-        title.setFont(new Font("Arial", Font.BOLD, 24));
-        title.setForeground(Color.WHITE);
-        title.setBackground(new Color(255, 70, 85));
-        title.setOpaque(true);
-        title.setBorder(BorderFactory.createEmptyBorder(15, 0, 15, 0));
-        add(title, BorderLayout.NORTH);
+        loadWeapons();
+
+        JLabel title = new JLabel("VALORANT SHOP", SwingConstants.CENTER);
+        title.setFont(new Font("Arial", Font.BOLD, 22));
 
         weaponsPanel = new JPanel(new GridLayout(0, 2, 10, 10));
-        weaponsPanel.setBackground(new Color(15, 25, 35));
-        weaponsPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
+        for (Weapons w : arsenal) {
+            weaponsPanel.add(createCard(w));
+        }
 
-        cargarArmas();
-        mostrarArmas();
+        JButton btnAdd = new JButton("Add weapon");
+        btnAdd.addActionListener(e -> new AddWeaponForm(this));
 
-        JScrollPane scroll = new JScrollPane(weaponsPanel);
-        scroll.getViewport().setBackground(new Color(15, 25, 35));
-        add(scroll, BorderLayout.CENTER);
+        setLayout(new BorderLayout(10, 10));
+        add(title, BorderLayout.NORTH);
+        add(new JScrollPane(weaponsPanel), BorderLayout.CENTER);
+        add(btnAdd, BorderLayout.SOUTH);
+        Color valorantRed = new Color(255, 70, 85);
+        Color darkBg      = new Color(15, 25, 35);
+        getContentPane().setBackground(darkBg);
+        title.setBackground(valorantRed);
+        title.setForeground(Color.WHITE);
+        title.setOpaque(true);
+        weaponsPanel.setBackground(darkBg);
+        btnAdd.setBackground(valorantRed);
+        btnAdd.setForeground(Color.WHITE);
+        btnAdd.setFocusPainted(false);
 
-        JButton btnAnadir = new JButton("+ Añadir arma a la tienda");
-        btnAnadir.setBackground(new Color(255, 70, 85));
-        btnAnadir.setForeground(Color.WHITE);
-        btnAnadir.setFont(new Font("Arial", Font.BOLD, 14));
-        btnAnadir.setFocusPainted(false);
-        btnAnadir.setBorder(BorderFactory.createEmptyBorder(12, 0, 12, 0));
-        btnAnadir.addActionListener(e -> new AddWeaponForm(this));
-        add(btnAnadir, BorderLayout.SOUTH);
 
         setVisible(true);
     }
 
-    private void cargarArmas() {
+    private void loadWeapons() {
         arsenal = new ArrayList<>();
         arsenal.add(new Fusil("Vandal",  25, 2900.0, true,  Weapons.Penetration.HIGH,   160, 39, 33, false));
         arsenal.add(new Fusil("Phantom", 30, 2900.0, true,  Weapons.Penetration.MEDIUM, 156, 38, 32, false));
@@ -58,70 +70,83 @@ public class ShopWindow extends JFrame {
         arsenal.add(new Sniper("Marshal",  5,  950.0, false, Weapons.Penetration.MEDIUM, 202, 101, Sniper.Scope.MARSHAL, 85));
         arsenal.add(new Pistol("Sheriff",  6,  800.0, false, Weapons.Penetration.HIGH,   160, 55, 46, false));
         arsenal.add(new Pistol("Ghost",   15,  500.0, false, Weapons.Penetration.MEDIUM, 105, 30, 25, true));
-        arsenal.add(new Shotgun("Judge",   7, 1850.0, true,  Weapons.Penetration.LOW, 34, 17, 14, 51, Shotgun.ShotgunName.JUDGE));
-        arsenal.add(new Classic("Classic",12,    0.0, false, Weapons.Penetration.LOW, 78, 26, 22, true));
+        arsenal.add(new Shotgun("Judge",   7, 1850.0, true,  Weapons.Penetration.LOW,    34, 17, 14, 51, Shotgun.ShotgunName.JUDGE));
+        arsenal.add(new Classic("Classic", 12,   0.0, false, Weapons.Penetration.LOW,    78, 26, 22, true));
     }
 
-    private void mostrarArmas() {
-        weaponsPanel.removeAll();
-        for (Weapons w : arsenal) {
-            weaponsPanel.add(crearTarjeta(w));
+    private JLabel loadImage(String weaponName) {
+        JLabel imgLabel = new JLabel("No image", SwingConstants.CENTER);
+        imgLabel.setPreferredSize(new Dimension(300, 150));
+        imgLabel.setBackground(new Color(30, 30, 30));
+        imgLabel.setOpaque(true);
+
+        String path = IMAGES.get(weaponName);
+        if (path == null) return imgLabel;
+
+        try {
+            ImageIcon icon = new ImageIcon(path);
+            int w = icon.getIconWidth();
+            int h = icon.getIconHeight();
+            double ratio = Math.min(300.0 / w, 150.0 / h);
+            int newW = (int)(w * ratio);
+            int newH = (int)(h * ratio);
+            Image scaled = icon.getImage().getScaledInstance(newW, newH, Image.SCALE_SMOOTH);
+            imgLabel.setIcon(new ImageIcon(scaled));
+            imgLabel.setText("");
+        } catch (Exception e) {
+            imgLabel.setText("No image");
         }
-        weaponsPanel.revalidate();
-        weaponsPanel.repaint();
+
+        return imgLabel;
     }
 
-    private JPanel crearTarjeta(Weapons w) {
-        JPanel card = new JPanel(new BorderLayout());
-        card.setBackground(new Color(30, 40, 55));
-        card.setBorder(BorderFactory.createLineBorder(new Color(255, 70, 85), 1));
+    private JPanel createCard(Weapons w) {
+        JPanel card = new JPanel(new BorderLayout(5, 5));
+        card.setBackground(new Color(30, 40, 55));                              // fondo oscuro
+        card.setBorder(BorderFactory.createLineBorder(new Color(255, 70, 85))); // borde rojo
+
+        JLabel imgLabel = loadImage(w.getName());
 
         JPanel info = new JPanel(new GridLayout(4, 1));
-        info.setBackground(new Color(30, 40, 55));
-        info.setBorder(BorderFactory.createEmptyBorder(10, 15, 10, 15));
+        info.setBackground(new Color(30, 40, 55));                              // fondo oscuro
 
-        JLabel nombre = new JLabel(w.getName());
-        nombre.setFont(new Font("Arial", Font.BOLD, 16));
-        nombre.setForeground(Color.WHITE);
+        JLabel lblName = new JLabel("Name: "        + w.getName());
+        JLabel lblType = new JLabel("Type: "        + w.getClass().getSimpleName());
+        JLabel lblPen  = new JLabel("Penetration: " + w.getCategory());
+        JLabel lblAuto = new JLabel("Automatic: "   + w.isItsAutomatic());
 
-        JLabel tipo = new JLabel("Tipo: " + w.getClass().getSimpleName());
-        tipo.setForeground(new Color(180, 180, 180));
-
-        JLabel penetracion = new JLabel("Penetración: " + w.getCategory());
-        penetracion.setForeground(new Color(180, 180, 180));
-
-        JLabel automatica = new JLabel("Automática: " + (w.isItsAutomatic() ? "Sí" : "No"));
-        automatica.setForeground(new Color(180, 180, 180));
-
-        info.add(nombre);
-        info.add(tipo);
-        info.add(penetracion);
-        info.add(automatica);
+        // Texto blanco
+        for (JLabel lbl : new JLabel[]{lblName, lblType, lblPen, lblAuto}) {
+            lbl.setForeground(Color.WHITE);
+            info.add(lbl);
+        }
 
         JPanel bottom = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-        bottom.setBackground(new Color(30, 40, 55));
+        bottom.setBackground(new Color(30, 40, 55));                            // fondo oscuro
 
-        JLabel precio = new JLabel(w.getPrice() == 0 ? "GRATIS" : (int) w.getPrice() + " créditos");
-        precio.setFont(new Font("Arial", Font.BOLD, 14));
-        precio.setForeground(new Color(255, 200, 0));
+        JLabel lblPrice = new JLabel(w.getPrice() == 0 ? "FREE" : (int) w.getPrice() + " credits");
+        lblPrice.setForeground(new Color(255, 200, 0));                         // precio amarillo
+        lblPrice.setFont(new Font("Arial", Font.BOLD, 13));
 
-        JButton btnComprar = new JButton("Comprar");
-        btnComprar.setBackground(new Color(255, 70, 85));
-        btnComprar.setForeground(Color.WHITE);
-        btnComprar.setFocusPainted(false);
-        btnComprar.addActionListener(e -> new BuyWeaponForm(w));
+        JButton btnBuy = new JButton("Buy");
+        btnBuy.setBackground(new Color(255, 70, 85));
+        btnBuy.setForeground(Color.WHITE);
+        btnBuy.setFocusPainted(false);
+        btnBuy.addActionListener(e -> new BuyWeaponForm(w));
 
-        bottom.add(precio);
-        bottom.add(btnComprar);
+        bottom.add(lblPrice);
+        bottom.add(btnBuy);
 
-        card.add(info, BorderLayout.CENTER);
-        card.add(bottom, BorderLayout.SOUTH);
+        card.add(imgLabel, BorderLayout.NORTH);
+        card.add(info,     BorderLayout.CENTER);
+        card.add(bottom,   BorderLayout.SOUTH);
 
         return card;
     }
-
-    public void agregarArma(Weapons w) {
+    public void addWeapon(Weapons w) {
         arsenal.add(w);
-        mostrarArmas();
+        weaponsPanel.add(createCard(w));
+        weaponsPanel.revalidate();
+        weaponsPanel.repaint();
     }
 }

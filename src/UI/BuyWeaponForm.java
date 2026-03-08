@@ -1,82 +1,60 @@
 package UI;
 
+
 import valorantArsenal.Weapons;
 import javax.swing.*;
 import java.awt.*;
 
 public class BuyWeaponForm extends JFrame {
 
-    public BuyWeaponForm(Weapons arma) {
-        setTitle("Comprar " + arma.getName());
-        setSize(400, 300);
+    public BuyWeaponForm(Weapons weapon) {
+        setTitle("Buy " + weapon.getName());
+        setSize(350, 250);
         setLocationRelativeTo(null);
-        setLayout(new BorderLayout());
-        getContentPane().setBackground(new Color(15, 25, 35));
+        setLayout(new GridLayout(5, 2, 10, 10));
 
-        JLabel title = new JLabel("Comprar " + arma.getName(), SwingConstants.CENTER);
-        title.setFont(new Font("Arial", Font.BOLD, 18));
-        title.setForeground(Color.WHITE);
-        title.setBorder(BorderFactory.createEmptyBorder(15, 0, 10, 0));
-        add(title, BorderLayout.NORTH);
+        add(new JLabel("Your name:"));
+        JTextField txtName = new JTextField();
+        add(txtName);
 
-        JPanel form = new JPanel(new GridLayout(3, 2, 10, 10));
-        form.setBackground(new Color(15, 25, 35));
-        form.setBorder(BorderFactory.createEmptyBorder(10, 30, 10, 30));
+        add(new JLabel("Agent:"));
+        JTextField txtAgent = new JTextField();
+        add(txtAgent);
 
-        JLabel lblNombre   = new JLabel("Tu nombre:");
-        JLabel lblAgente   = new JLabel("Agente:");
-        JLabel lblCreditos = new JLabel("Tus créditos:");
+        add(new JLabel("Your credits:"));
+        JTextField txtCredits = new JTextField();
+        add(txtCredits);
 
-        lblNombre.setForeground(Color.WHITE);
-        lblAgente.setForeground(Color.WHITE);
-        lblCreditos.setForeground(Color.WHITE);
+        JButton btnCancel = new JButton("Cancel");
+        btnCancel.addActionListener(e -> dispose());
+        add(btnCancel);
 
-        JTextField txtNombre   = new JTextField();
-        JTextField txtAgente   = new JTextField();
-        JTextField txtCreditos = new JTextField();
+        JButton btnConfirm = new JButton("Confirm");
+        btnConfirm.addActionListener(e -> {
+            String name    = txtName.getText().trim();
+            String agent   = txtAgent.getText().trim();
+            String credits = txtCredits.getText().trim();
 
-        form.add(lblNombre);   form.add(txtNombre);
-        form.add(lblAgente);   form.add(txtAgente);
-        form.add(lblCreditos); form.add(txtCreditos);
-        add(form, BorderLayout.CENTER);
-
-        JButton btnConfirmar = new JButton("Confirmar compra");
-        btnConfirmar.setBackground(new Color(255, 70, 85));
-        btnConfirmar.setForeground(Color.WHITE);
-        btnConfirmar.setFont(new Font("Arial", Font.BOLD, 14));
-        btnConfirmar.setFocusPainted(false);
-        btnConfirmar.setBorder(BorderFactory.createEmptyBorder(12, 0, 12, 0));
-
-        btnConfirmar.addActionListener(e -> {
-            String nombre   = txtNombre.getText().trim();
-            String agente   = txtAgente.getText().trim();
-            String creditos = txtCreditos.getText().trim();
-
-            if (nombre.isEmpty() || agente.isEmpty() || creditos.isEmpty()) {
-                JOptionPane.showMessageDialog(this,
-                        "Por favor rellena todos los campos",
-                        "Error", JOptionPane.ERROR_MESSAGE);
+            if (name.isEmpty() || agent.isEmpty() || credits.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Please fill in all fields");
                 return;
             }
 
             try {
-                double creds = Double.parseDouble(creditos);
-                if (creds < arma.getPrice()) {
+                double creds = Double.parseDouble(credits);
+                if (creds < weapon.getPrice()) {
                     JOptionPane.showMessageDialog(this,
-                            "No tienes suficientes créditos.\nNecesitas: " + (int) arma.getPrice(),
-                            "Créditos insuficientes", JOptionPane.WARNING_MESSAGE);
+                            "Not enough credits. You need: " + (int) weapon.getPrice());
                 } else {
                     dispose();
-                    new PurchaseConfirmWindow(nombre, agente, arma, creds - arma.getPrice());
+                    new ui.PurchaseConfirmWindow(name, agent, weapon, creds - weapon.getPrice());
                 }
             } catch (NumberFormatException ex) {
-                JOptionPane.showMessageDialog(this,
-                        "Los créditos deben ser un número",
-                        "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Credits must be a number");
             }
         });
+        add(btnConfirm);
 
-        add(btnConfirmar, BorderLayout.SOUTH);
         setVisible(true);
     }
 }
