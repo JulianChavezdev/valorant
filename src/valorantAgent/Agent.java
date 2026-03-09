@@ -46,11 +46,11 @@ public class Agent {
         this.baseLife = baseLife;
     }
 
-    public boolean isAlive() {
+    public boolean getisAlive() {
         return isAlive;
     }
 
-    public void isAlive(boolean itslive) {
+    public void setisAlive(boolean itslive) {
         isAlive = itslive;
     }
 
@@ -65,6 +65,14 @@ public class Agent {
     public void useSkill() throws DeadAgentException {
         if (!isAlive) throw new DeadAgentException(name);
         System.out.println(name + " uses a skill");
+    }
+    public void isDeath(){
+        if (getBaseLife()<=0){
+            setisAlive(isAlive=false);
+            System.out.println(isAlive);
+        }
+        setisAlive(isAlive=true);
+        System.out.println(isAlive);
     }
 
 

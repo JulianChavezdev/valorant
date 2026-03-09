@@ -51,7 +51,7 @@ public class Classic extends Weapons {
 
         if (agent2.getBaseLife() <= 0) {
             agent2.setBaseLife(0);
-            agent2.isAlive(false);
+            agent2.getisAlive();
             return agent1.getName() + " eliminated " + agent2.getName() +
                     " with a shot to the " + zone + " (-" + damage + " hp)";
         }
@@ -70,7 +70,7 @@ public class Classic extends Weapons {
 
             if (agent2.getBaseLife() <= 0) {
                 agent2.setBaseLife(0);
-                agent2.isAlive(false);
+                agent2.isDeath();
                 return agent1.getName() + " eliminated " + agent2.getName() +
                         " with right-click shot (-" + totalDamage + " hp)";
             }
@@ -85,7 +85,7 @@ public class Classic extends Weapons {
 
             if (agent2.getBaseLife() <= 0) {
                 agent2.setBaseLife(0);
-                agent2.isAlive(false);
+                agent2.isDeath();
                 return agent1.getName() + " eliminated " + agent2.getName() +
                         " with right-click shot (-" + totalDamage + " hp)";
             }
@@ -100,7 +100,7 @@ public class Classic extends Weapons {
 
             if (agent2.getBaseLife() <= 0) {
                 agent2.setBaseLife(0);
-                agent2.isAlive(false);
+                agent2.isDeath();
                 return agent1.getName() + " eliminated " + agent2.getName() +
                         " with right-click shot (-" + totalDamage + " hp)";
             }
@@ -115,7 +115,7 @@ public class Classic extends Weapons {
 
             if (agent2.getBaseLife() <= 0) {
                 agent2.setBaseLife(0);
-                agent2.isAlive(false);
+                agent2.isDeath();
                 return agent1.getName() + " eliminated " + agent2.getName() +
                         " with right-click shot (-" + totalDamage + " hp)";
             }
@@ -130,7 +130,7 @@ public class Classic extends Weapons {
 
             if (agent2.getBaseLife() <= 0) {
                 agent2.setBaseLife(0);
-                agent2.isAlive(false);
+                agent2.isDeath();
                 return agent1.getName() + " eliminated " + agent2.getName() +
                         " with right-click shot (-" + totalDamage + " hp)";
             }
@@ -145,7 +145,7 @@ public class Classic extends Weapons {
 
             if (agent2.getBaseLife() <= 0) {
                 agent2.setBaseLife(0);
-                agent2.isAlive(false);
+                agent2.isDeath();
                 return agent1.getName() + " eliminated " + agent2.getName() +
                         " with right-click shot (-" + totalDamage + " hp)";
             }
@@ -160,7 +160,7 @@ public class Classic extends Weapons {
 
             if (agent2.getBaseLife() <= 0) {
                 agent2.setBaseLife(0);
-                agent2.isAlive(false);
+                agent2.isDeath();
                 return agent1.getName() + " eliminated " + agent2.getName() +
                         " with right-click shot (-" + totalDamage + " hp)";
             }
