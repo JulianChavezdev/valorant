@@ -15,8 +15,8 @@ public class Agent {
     public Agent(String name, String country, int baseLife, boolean isAlive) {
         this.name = name;
         this.country = country;
-        this.baseLife = baseLife;
-        isAlive = isAlive;
+        this.baseLife = 100;
+        isAlive = true;
     }
 
     public Agent() {
