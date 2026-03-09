@@ -2,30 +2,27 @@ package valorantAgent;
 
 import java.util.Objects;
 
-public class Skill extends Agent{
+public class Skill{
     private String name;
     private int price;
     private boolean itsulti;
     public enum Effect{DAMAGE, HEALING, BLINDNESS};
     private Effect effect;
 
-    public Skill(String name, String country, int baseLife, boolean isAlive, String name1, int price, boolean ulti, Effect effect) {
-        super(name, country, baseLife, isAlive);
-        this.name = name1;
+    public Skill(String name, int price, boolean itsulti, Effect effect) {
+        this.name = name;
         this.price = price;
-        this.itsulti = ulti;
+        this.itsulti = itsulti;
         this.effect = effect;
     }
 
     public Skill() {
     }
 
-    @Override
     public String getName() {
         return name;
     }
 
-    @Override
     public void setName(String name) {
         this.name = name;
     }
@@ -51,17 +48,6 @@ public class Skill extends Agent{
     }
 
     public void setEffect(Effect effect) {
-        this.effect = effect;
-    }
-
-    public Skill(String name, String country, int baseLife, boolean itslive) {
-        super(name, country, baseLife, itslive);
-    }
-
-    public Skill(String name, int price, boolean ulti, Effect effect) {
-        this.name = name;
-        this.price = price;
-        this.itsulti = ulti;
         this.effect = effect;
     }
 

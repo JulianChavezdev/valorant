@@ -6,7 +6,7 @@ import maps.*;
 import javax.swing.*;
 
 public class Main {
-    public static void main(String[] args) {
+    void main(){
 
         Skill skillDash    = new Skill("Tailwind",    0,   false, Skill.Effect.DAMAGE);
         Skill skillBlade   = new Skill("Bladestorm",  7,   true,  Skill.Effect.DAMAGE);
@@ -191,4 +191,8 @@ public class Main {
         SwingUtilities.invokeLater(() -> new ShopWindow());
     }
 }
-Validación de proyecto Valorant contra requisitos - Claude
+//Validación de proyecto Valorant contra requisitos - Claude
+
+
+
+
