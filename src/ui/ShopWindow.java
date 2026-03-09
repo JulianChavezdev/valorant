@@ -1,7 +1,5 @@
-package UI;
+package ui;
 
-import UI.AddWeaponForm;
-import UI.BuyWeaponForm;
 import valorantArsenal.*;
 import javax.swing.*;
 import java.awt.*;

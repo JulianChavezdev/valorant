@@ -1,4 +1,4 @@
-import UI.ShopWindow;
+import ui.ShopWindow;
 
 import javax.swing.*;
 
