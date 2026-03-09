@@ -4,9 +4,9 @@ import valorantAgent.Agent;
 import java.util.Objects;
 
 public class Classic extends Weapons {
-    private int headDamage;
-    private int bodyDamage;
-    private int legsDamage;
+    private static int headDamage;
+    private static int bodyDamage;
+    private static int legsDamage;
     private boolean rightclick;
 
     public Classic(String name, int chargedsize, double price, boolean itsAutomatic, Penetration penetration, int headDamage, int bodyDamage, int legsDamage, boolean rightclick) {
@@ -31,7 +31,7 @@ public class Classic extends Weapons {
     public boolean isRightclick() { return rightclick; }
     public void setRightclick(boolean rightclick) { this.rightclick = rightclick; }
 
-    public String shootLc(Agent agent1, Agent agent2) {
+    public static String shootLc(Agent agent1, Agent agent2) {
         int chance = (int)(Math.random() * 100) + 1;
         int damage;
         String zone;
