@@ -10,6 +10,14 @@ public class SiteMap extends Map {
 
     public SiteMap() {}
 
+    public SiteMap(String mapName, String location, boolean isCompetitive, int pointsOfInterest, int kills, int deaths, int assists, double combatScore) {
+        super(mapName, location, isCompetitive, pointsOfInterest);
+        this.kills = kills;
+        this.deaths = deaths;
+        this.assists = assists;
+        this.combatScore = combatScore;
+    }
+
     public SiteMap(int kills, int deaths, int assists, double combatScore) {
         this.kills = kills;
         this.deaths = deaths;
