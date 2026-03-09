@@ -22,10 +22,10 @@ class SniperTest {
 
     @Test
     void testSetScope() {
-        operator.setScope(true);
+        operator.setScope(Sniper.Scope.OPERATORMIN);
         assertTrue(operator.isScoped(), "The sniper should be in scoped mode");
 
-        operator.setScope(false);
+        operator.setScope(Sniper.Scope.NOSCOPE);
         assertFalse(operator.isScoped(), "The sniper should be in hip-fire mode");
     }
 
@@ -34,7 +34,7 @@ class SniperTest {
         String result = operator.shoot(shooter, target);
 
         assertEquals(0, target.getBaseLife(), "Target should have 0 HP after a sniper shot");
-        assertFalse(target.isAlive(), "Target should be eliminated");
+        assertFalse(target.getisAlive(), "Target should be eliminated");
         assertTrue(result.contains("eliminated"), "The combat log should confirm the kill");
     }
 

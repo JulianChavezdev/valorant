@@ -13,7 +13,7 @@ public class Sniper extends Weapons {
         
     }
 
-    public enum Scope {OUTLAW, MARSHAL, OPERATORMIN, OPERATORMAX};
+    public enum Scope {OUTLAW, MARSHAL, OPERATORMIN, OPERATORMAX, NOSCOPE};
     protected Scope scope;
 
     public Sniper(String name, int chargedsize, double price, boolean itsAutomatic, Penetration penetration, int headDamage, int legsDamage, Scope scope, int bodyDamage) {
@@ -86,7 +86,7 @@ public class Sniper extends Weapons {
 
         if (agent2.getBaseLife() <= 0) {
             agent2.setBaseLife(0);
-            agent2.isAlive(false);
+            agent2.isDeath();
             return agent1.getName() + " eliminated " + agent2.getName() +
                     " with a shot to the " + zone + " (-" + damage + " hp)";
         }
