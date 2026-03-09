@@ -8,6 +8,11 @@ public class Sniper extends Weapons {
     private int headDamage;
     private int bodyDamage;
     private int legsDamage;
+
+    public boolean isScoped() {
+        
+    }
+
     public enum Scope {OUTLAW, MARSHAL, OPERATORMIN, OPERATORMAX};
     protected Scope scope;
 

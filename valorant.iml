@@ -25,9 +25,8 @@
       </library>
     </orderEntry>
     <orderEntry type="library" exported="" name="gson-2.10.1" level="project" />
-<<<<<<< HEAD
-=======
+
     <orderEntry type="library" name="gson-2.10.2" level="project" />
->>>>>>> dc3fc2f158dc2a95330b5939f668e3c5a9ce3304
+
   </component>
 </module>
