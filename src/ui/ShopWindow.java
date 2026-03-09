@@ -100,13 +100,13 @@ public class ShopWindow extends JFrame {
 
     private JPanel createCard(Weapons w) {
         JPanel card = new JPanel(new BorderLayout(5, 5));
-        card.setBackground(new Color(30, 40, 55));                              // fondo oscuro
-        card.setBorder(BorderFactory.createLineBorder(new Color(255, 70, 85))); // borde rojo
+        card.setBackground(new Color(30, 40, 55));
+        card.setBorder(BorderFactory.createLineBorder(new Color(255, 70, 85)));
 
         JLabel imgLabel = loadImage(w.getName());
 
         JPanel info = new JPanel(new GridLayout(4, 1));
-        info.setBackground(new Color(30, 40, 55));                              // fondo oscuro
+        info.setBackground(new Color(30, 40, 55));
 
         JLabel lblName = new JLabel("Name: "        + w.getName());
         JLabel lblType = new JLabel("Type: "        + w.getClass().getSimpleName());
@@ -120,10 +120,10 @@ public class ShopWindow extends JFrame {
         }
 
         JPanel bottom = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-        bottom.setBackground(new Color(30, 40, 55));                            // fondo oscuro
+        bottom.setBackground(new Color(30, 40, 55));
 
         JLabel lblPrice = new JLabel(w.getPrice() == 0 ? "FREE" : (int) w.getPrice() + " credits");
-        lblPrice.setForeground(new Color(255, 200, 0));                         // precio amarillo
+        lblPrice.setForeground(new Color(255, 200, 0));
         lblPrice.setFont(new Font("Arial", Font.BOLD, 13));
 
         JButton btnBuy = new JButton("Buy");
