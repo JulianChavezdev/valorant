@@ -1,4 +1,4 @@
-package UI;
+package ui;
 
 
 import valorantArsenal.Weapons;
