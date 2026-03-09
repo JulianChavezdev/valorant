@@ -40,8 +40,8 @@ class SniperTest {
 
     @Test
     void testEquals() {
-        Sniper sameSniper = new Sniper("Operator", 5, 4700.0, false, null, 255, 150, 120, false);
-        Sniper differentSniper = new Sniper("Marshal", 5, 950.0, false, null, 202, 101, 85, false);
+        Sniper sameSniper = new Sniper("Operator", 5, 4700.0, false, null, 255, 120, Sniper.Scope.OPERATORMIN, 150);
+        Sniper differentSniper = new Sniper("Marshal", 5, 950.0, false, null, 202, 101, Sniper.Scope.MARSHAL, 85);
 
         assertEquals(operator, sameSniper, "Identical snipers should be equal");
         assertNotEquals(operator, differentSniper, "Different sniper models should not be equal");
@@ -49,7 +49,7 @@ class SniperTest {
 
     @Test
     void testHashCode() {
-        Sniper sameSniper = new Sniper("Operator", 5, 4700.0, false, null, 255, 150, 120, false);
+        Sniper sameSniper = new Sniper("Operator", 5, 4700.0, false, null, 255, 120, Sniper.Scope.OPERATORMIN,150);
         assertEquals(operator.hashCode(), sameSniper.hashCode(), "HashCodes must match for identical objects");
     }
 

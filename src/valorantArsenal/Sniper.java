@@ -9,9 +9,7 @@ public class Sniper extends Weapons {
     private int bodyDamage;
     private int legsDamage;
 
-    public boolean isScoped() {
-        
-    }
+
 
     public enum Scope {OUTLAW, MARSHAL, OPERATORMIN, OPERATORMAX, NOSCOPE};
     protected Scope scope;
@@ -20,8 +18,8 @@ public class Sniper extends Weapons {
         super(name, chargedsize, price, itsAutomatic, penetration);
         this.headDamage = headDamage;
         this.legsDamage = legsDamage;
-        this.scope = scope;
         this.bodyDamage = bodyDamage;
+        this.scope = scope;
     }
 
     public Sniper(int headDamage, int bodyDamage, int legsDamage, Scope scope) {
@@ -95,7 +93,12 @@ public class Sniper extends Weapons {
                 " in the " + zone + " (-" + damage + " hp). Remaining HP: " +
                 agent2.getBaseLife();
     }
-
+    public boolean isScoped() {
+        if (this.scope!=Scope.NOSCOPE){
+            return true;
+        }
+        return false;
+    }
 
     @Override
     public boolean equals(Object o) {
