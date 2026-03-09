@@ -1,5 +1,7 @@
 package valorantArsenal;
 
+import valorantAgent.Agent;
+
 import java.util.Objects;
 
 public class Shotgun extends Weapons {
@@ -60,6 +62,37 @@ public class Shotgun extends Weapons {
     public void setShotgunName(ShotgunName shotgunName) {
         this.shotgunName = shotgunName;
     }
+
+    public String shoot(Agent agent1, Agent agent2) {
+        int chance = (int)(Math.random() * 100) + 1;
+        int damage;
+        String zone;
+
+        if (chance <= 15) {
+            damage = headDamage;
+            zone = "head";
+        } else if (chance <= 70) {
+            damage = bodyDamage;
+            zone = "body";
+        } else {
+            damage = legsDamage;
+            zone = "legs";
+        }
+
+        agent2.setBaseLife(agent2.getBaseLife() - damage);
+
+        if (agent2.getBaseLife() <= 0) {
+            agent2.setBaseLife(0);
+            agent2.isAlive(false);
+            return agent1.getName() + " eliminated " + agent2.getName() +
+                    " with a shot to the " + zone + " (-" + damage + " hp)";
+        }
+
+        return agent1.getName() + " shot " + agent2.getName() +
+                " in the " + zone + " (-" + damage + " hp). Remaining HP: " +
+                agent2.getBaseLife();
+    }
+
 
     @Override
     public boolean equals(Object o) {
