@@ -182,7 +182,7 @@ public class Main {
         Agent target   = new Agent("Reyna", "Mexico", 100, true);
 
         System.out.println(vandal.shoot(attacker, target));
-        if (target.isAlive()) {
+        if (target.getisAlive()) {
             System.out.println(operator.shoot(attacker, target));
         }
         System.out.println(knife1.frontKnifing(attacker, target));
