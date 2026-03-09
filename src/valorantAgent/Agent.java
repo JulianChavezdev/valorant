@@ -16,7 +16,7 @@ public class Agent {
         this.name = name;
         this.country = country;
         this.baseLife = 100;
-        isAlive = true;
+        this.isAlive = true;
     }
 
     public Agent() {
