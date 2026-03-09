@@ -62,22 +62,113 @@ public class Classic extends Weapons {
     }
 
     public String shootRc(Agent agent1, Agent agent2) {
+        int chance = (int)(Math.random() * 7) + 1;
         int pellets = 3;
-        int damagePerPellet = bodyDamage / 2;
-        int totalDamage = pellets * damagePerPellet;
+        if (chance == 1){
+            int totalDamage= 3*headDamage;
+            agent2.setBaseLife(agent2.getBaseLife() - totalDamage);
 
-        agent2.setBaseLife(agent2.getBaseLife() - totalDamage);
+            if (agent2.getBaseLife() <= 0) {
+                agent2.setBaseLife(0);
+                agent2.isAlive(false);
+                return agent1.getName() + " eliminated " + agent2.getName() +
+                        " with right-click shot (-" + totalDamage + " hp)";
+            }
 
-        if (agent2.getBaseLife() <= 0) {
-            agent2.setBaseLife(0);
-            agent2.isAlive(false);
-            return agent1.getName() + " eliminated " + agent2.getName() +
-                    " with right-click shot (-" + totalDamage + " hp)";
+            return agent1.getName() + " hit " + agent2.getName() +
+                    " with right-click shot (-" + totalDamage + " hp). Remaining HP: " +
+                    agent2.getBaseLife();
+        }
+        else if (chance == 2){
+            int totalDamage= 2*headDamage + bodyDamage;
+            agent2.setBaseLife(agent2.getBaseLife() - totalDamage);
+
+            if (agent2.getBaseLife() <= 0) {
+                agent2.setBaseLife(0);
+                agent2.isAlive(false);
+                return agent1.getName() + " eliminated " + agent2.getName() +
+                        " with right-click shot (-" + totalDamage + " hp)";
+            }
+
+            return agent1.getName() + " hit " + agent2.getName() +
+                    " with right-click shot (-" + totalDamage + " hp). Remaining HP: " +
+                    agent2.getBaseLife();
+        }
+        else if (chance == 3){
+            int totalDamage= headDamage+2*bodyDamage;
+            agent2.setBaseLife(agent2.getBaseLife() - totalDamage);
+
+            if (agent2.getBaseLife() <= 0) {
+                agent2.setBaseLife(0);
+                agent2.isAlive(false);
+                return agent1.getName() + " eliminated " + agent2.getName() +
+                        " with right-click shot (-" + totalDamage + " hp)";
+            }
+
+            return agent1.getName() + " hit " + agent2.getName() +
+                    " with right-click shot (-" + totalDamage + " hp). Remaining HP: " +
+                    agent2.getBaseLife();
+        }
+        else if (chance == 4){
+            int totalDamage= 3*bodyDamage;
+            agent2.setBaseLife(agent2.getBaseLife() - totalDamage);
+
+            if (agent2.getBaseLife() <= 0) {
+                agent2.setBaseLife(0);
+                agent2.isAlive(false);
+                return agent1.getName() + " eliminated " + agent2.getName() +
+                        " with right-click shot (-" + totalDamage + " hp)";
+            }
+
+            return agent1.getName() + " hit " + agent2.getName() +
+                    " with right-click shot (-" + totalDamage + " hp). Remaining HP: " +
+                    agent2.getBaseLife();
+        }
+        else if (chance == 5){
+            int totalDamage= 2*headDamage+legsDamage;
+            agent2.setBaseLife(agent2.getBaseLife() - totalDamage);
+
+            if (agent2.getBaseLife() <= 0) {
+                agent2.setBaseLife(0);
+                agent2.isAlive(false);
+                return agent1.getName() + " eliminated " + agent2.getName() +
+                        " with right-click shot (-" + totalDamage + " hp)";
+            }
+
+            return agent1.getName() + " hit " + agent2.getName() +
+                    " with right-click shot (-" + totalDamage + " hp). Remaining HP: " +
+                    agent2.getBaseLife();
+        }
+        else if (chance == 6){
+            int totalDamage= bodyDamage+2*legsDamage;
+            agent2.setBaseLife(agent2.getBaseLife() - totalDamage);
+
+            if (agent2.getBaseLife() <= 0) {
+                agent2.setBaseLife(0);
+                agent2.isAlive(false);
+                return agent1.getName() + " eliminated " + agent2.getName() +
+                        " with right-click shot (-" + totalDamage + " hp)";
+            }
+
+            return agent1.getName() + " hit " + agent2.getName() +
+                    " with right-click shot (-" + totalDamage + " hp). Remaining HP: " +
+                    agent2.getBaseLife();
         }
 
-        return agent1.getName() + " hit " + agent2.getName() +
-                " with right-click shot (-" + totalDamage + " hp). Remaining HP: " +
-                agent2.getBaseLife();
+            int totalDamage= 3*legsDamage;
+            agent2.setBaseLife(agent2.getBaseLife() - totalDamage);
+
+            if (agent2.getBaseLife() <= 0) {
+                agent2.setBaseLife(0);
+                agent2.isAlive(false);
+                return agent1.getName() + " eliminated " + agent2.getName() +
+                        " with right-click shot (-" + totalDamage + " hp)";
+            }
+
+            return agent1.getName() + " hit " + agent2.getName() +
+                    " with right-click shot (-" + totalDamage + " hp). Remaining HP: " +
+                    agent2.getBaseLife();
+
     }
 
     @Override
