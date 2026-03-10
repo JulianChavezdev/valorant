@@ -1,61 +1,117 @@
-# 🎮 VALORANT Manager System - Java OOP Project
+# 🎮 VALORANT Manager System
 
-![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
-![Status](https://img.shields.io/badge/Status-Complete-brightgreen?style=for-the-badge)
-
-A comprehensive technical management system based on the **VALORANT** universe. This project was developed as an integral application for Object-Oriented Programming (OOP), managing agents, unique ability kits, an advanced arsenal with hit-zone damage stats, and a functional store.
-
-## 🚀 Project Overview
-
-This system implements the core pillars of OOP and advanced control structures:
-
-- **Multi-layer Architecture:** Organized into specific packages (`agentes` and `arsenal`).
-- **Inheritance Hierarchy:** Base classes for Agents and Weapons with specialized subclasses.
-- **Data Management:** Extensive use of `ArrayList` for inventories and `HashMap` for high-performance key-value lookups.
-- **Business Logic:** Stat validation, hit-zone damage calculation, and economic management.
+A technical management system based on the **VALORANT** universe, developed as a comprehensive **Object-Oriented Programming (OOP)** project in Java. The system manages agents, ability kits, an advanced arsenal with hit-zone damage stats, and a functional in-game store.
 
 ---
 
-## 🛠️ System Structure
+## 📁 Project Structure
 
-### 📂 Package: `com.valorant.agentes`
-* **Agente (Parent):** Base attributes such as health, country of origin, and status.
-* **Duelista / Centinela (Children):** Specialized classes implementing the 4-ability system (C, Q, E, X).
-* **Habilidad (Auxiliary):** Defines ability costs, effect types, and charges.
-* **EquipoAgentes (Manager):** Handles lists and maps to control the active roster of characters.
-
-### 📂 Package: `com.valorant.arsenal`
-* **Arma (Parent):** Defines pricing, categories, and firing rates.
-* **Rifle / Francotirador (Children):** Specialized classes featuring localized damage stats (Head, Body, Legs).
-* **Skin (Auxiliary):** Manages cosmetic items and collections.
-* **Tienda (Manager):** Logic for inventory management, active discounts, and weapon queries.
+```
+valorant/
+├── src/
+│   └── com/valorant/
+│       ├── agentes/
+│       │   ├── Agente.java          # Base class
+│       │   ├── Duelista.java        # Specialized subclass
+│       │   ├── Centinela.java       # Specialized subclass
+│       │   ├── Habilidad.java       # Auxiliary class
+│       │   └── EquipoAgentes.java   # Manager class
+│       └── arsenal/
+│           ├── Arma.java            # Base class
+│           ├── Rifle.java           # Specialized subclass
+│           ├── Francotirador.java   # Specialized subclass
+│           ├── Skin.java            # Auxiliary class
+│           └── Tienda.java          # Manager class
+├── purchases.json
+└── Main.java
+```
 
 ---
 
-## 📋 Technical Requirements Met
+## 🧱 Architecture & Design
+
+### 📦 Package `com.valorant.agentes`
+
+| Class | Description |
+|---|---|
+| `Agente` | Parent class with base attributes: health, country of origin, and status |
+| `Duelista` | Specialized subclass implementing the 4-ability system (C, Q, E, X) |
+| `Centinela` | Specialized subclass implementing the 4-ability system (C, Q, E, X) |
+| `Habilidad` | Defines ability costs, effect types, and charge counts |
+| `EquipoAgentes` | Manages lists and maps to control the active agent roster |
+
+### 📦 Package `com.valorant.arsenal`
+
+| Class | Description |
+|---|---|
+| `Arma` | Parent class with price, category, and firing rate |
+| `Rifle` | Subclass with localized damage stats (head, body, legs) |
+| `Francotirador` | Subclass with localized damage stats per hit zone |
+| `Skin` | Manages cosmetic items and collections |
+| `Tienda` | Inventory management logic, active discounts, and weapon queries |
+
+---
+
+## ✅ Technical Requirements Met
 
 | Requirement | Implementation |
-| :--- | :--- |
-| **Classes** | 10 distinct classes with full/empty constructors, getters, setters, and custom `toString`. |
-| **Inheritance** | 2 Parent classes and 4 specialized child classes. |
-| **Collections** | 4 `ArrayList` and 2 `HashMap` structures with CRUD methods (Add, Search, Delete). |
-| **Data Types** | Robust use of `String`, `int`, `double`, `boolean`, and custom `Enums`. |
-| **Logic** | Implementation of `for/while` loops, `if/else` conditionals, and `switch` statements. |
-| **Data Integrity** | Overridden `equals` and `hashCode` in all entities for correct collection behavior. |
+|---|---|
+| **Classes** | 10 distinct classes with full/empty constructors, getters, setters, and custom `toString` |
+| **Inheritance** | 2 parent classes and 4 specialized child classes |
+| **Collections** | 4 `ArrayList` and 2 `HashMap` structures with CRUD methods (Add, Search, Delete) |
+| **Data Types** | Robust use of `String`, `int`, `double`, `boolean`, and custom `Enums` |
+| **Logic** | `for/while` loops, `if/else` conditionals, and `switch` statements |
+| **Data Integrity** | Overridden `equals` and `hashCode` in all entities for correct collection behavior |
 
 ---
 
-## 💻 Execution Example (Main)
+## 💻 Execution Example
 
 The `Main` class initializes a full environment including:
-1.  **Agents:** Instantiating Duelists (e.g., Jett) and Sentinels (e.g., Sage) with their full ability kits.
-2.  **Arsenal:** Configuration of iconic weapons (Vandal, Operator) with specific damage-per-hitbox values.
-3.  **Operations:** Recruiting agents into a team and managing store inventory via Map logic.
+
+1. **Agents:** Instantiating Duelists (e.g., Jett) and Sentinels (e.g., Sage) with their complete ability kits.
+2. **Arsenal:** Configuration of iconic weapons (Vandal, Operator) with specific damage-per-hitbox values.
+3. **Operations:** Recruiting agents into a team and managing store inventory via Map logic.
 
 ---
 
 ## ⚙️ Installation & Usage
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/JulianChavezdev/valorant
+### Prerequisites
+
+- Java JDK 8 or higher
+- IntelliJ IDEA (recommended) or any compatible IDE
+
+### Clone the repository
+
+```bash
+git clone https://github.com/JulianChavezdev/valorant.git
+cd valorant
+```
+
+### Run
+
+1. Open the project in IntelliJ IDEA.
+2. Wait for the project to be indexed.
+3. Run the `Main.java` class.
+
+---
+
+## 🧠 OOP Concepts Applied
+
+- **Encapsulation** — Private attributes with controlled access via getters/setters.
+- **Inheritance** — Clear hierarchy between parent and child classes.
+- **Polymorphism** — Specialized behaviors implemented in subclasses.
+- **Abstraction** — Simplified models representing the VALORANT universe.
+- **Collections** — Efficient use of `ArrayList` and `HashMap` for data management.
+
+---
+
+## 👤 Author
+
+**JulianChavezdev**  
+[GitHub](https://github.com/JulianChavezdev)
+
+---
+
+> Academic OOP project inspired by the VALORANT® universe (Riot Games). This project has no commercial purpose.
