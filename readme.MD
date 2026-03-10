@@ -109,8 +109,12 @@ cd valorant
 
 ## 👤 Author
 
-**JulianChavezdev**  
-[GitHub](https://github.com/JulianChavezdev)
+
+**Nerea Ros**
+**Manuel Vasco**
+**Julian Chavez**  
+**Luis Hinojosa**
+**Jaime Pastrana**
 
 ---
 
