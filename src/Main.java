@@ -191,7 +191,6 @@ public class Main {
         SwingUtilities.invokeLater(() -> new ShopWindow());
     }
 }
-//Validación de proyecto Valorant contra requisitos - Claude
 
 
 
