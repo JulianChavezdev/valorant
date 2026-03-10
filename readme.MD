@@ -111,8 +111,11 @@ cd valorant
 
 
 **Nerea Ros**
+
 **Manuel Vasco**
-**Julian Chavez**  
+
+**Julian Chavez**
+
 **Luis Hinojosa**
 **Jaime Pastrana**
 
