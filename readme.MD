@@ -63,7 +63,7 @@ valorant/
 | **Logic** | `for/while` loops, `if/else` conditionals, and `switch` statements |
 | **Data Integrity** | Overridden `equals` and `hashCode` in all entities for correct collection behavior |
 
----
+---   
 
 ## 💻 Execution Example
 
